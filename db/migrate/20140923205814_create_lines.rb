@@ -6,7 +6,7 @@ class CreateLines < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.integer :floor
-      t.textarea :description, null:false
+      t.text :description, null:false
       t.float :latitude
       t.float :longitude
 
