@@ -6,5 +6,7 @@ class CreateLineListingImages < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :line_listing_images, :line_listing_id
   end
 end
