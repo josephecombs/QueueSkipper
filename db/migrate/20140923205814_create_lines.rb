@@ -6,11 +6,13 @@ class CreateLines < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.integer :floor
-      t.textarea :description
+      t.textarea :description, null:false
       t.float :latitude
       t.float :longitude
 
       t.timestamps
     end
+    
+    add_index :lines, [:latitude, :longitude]
   end
 end

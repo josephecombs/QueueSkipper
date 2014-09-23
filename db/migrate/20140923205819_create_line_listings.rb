@@ -12,5 +12,7 @@ class CreateLineListings < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :line_listings, [:latitude, :longitude]
   end
 end
