@@ -3,9 +3,9 @@ class CreateLineListings < ActiveRecord::Migration
     create_table :line_listings do |t|
       t.integer :lister_id
       t.integer :booker_id
-      t.currency :price
+      t.decimal :price, precision: 2
       t.integer :line_id
-      t.bool :active
+      t.boolean :active
       t.float :latitude
       t.float :longitude
       t.text :description
