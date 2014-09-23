@@ -8,7 +8,7 @@ class CreateLineListings < ActiveRecord::Migration
       t.bool :active
       t.float :latitude
       t.float :longitude
-      t.textarea :description
+      t.text :description
 
       t.timestamps
     end
