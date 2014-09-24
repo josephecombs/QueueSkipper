@@ -13,7 +13,7 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
     var line = QueueSkipper.Collections.lines.getOrFetch(id);
 
-    var formView = new QueueSkipper.Views.PostForm({
+    var formView = new QueueSkipper.Views.LineForm({
       model: line
     });
 
@@ -21,18 +21,20 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    var indexView = new QueueSkipper.Views.PostsIndex({
+    QueueSkipper.Collections.lines.fetch();
+    var indexView = new QueueSkipper.Views.LinesIndex({
       collection: QueueSkipper.Collections.lines
     });
+
     this._swapView(indexView);
   },
 
   new: function () {
-    var newPost = new QueueSkipper.Models.Post();
+    var newLine = new QueueSkipper.Models.Line();
 
-    var formView = new QueueSkipper.Views.PostForm({
+    var formView = new QueueSkipper.Views.LineForm({
       collection: QueueSkipper.Collections.lines,
-      model: newPost
+      model: newLine
     });
 
     this._swapView(formView);
@@ -40,13 +42,13 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var line = QueueSkipper.Collections.lines.getOrFetch(id);
-    var formView = new QueueSkipper.Views.PostShow({ model: line });
+    var formView = new QueueSkipper.Views.LineShow({ model: line });
     this._swapView(formView);
   },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
-    this._currenView = view;
+    this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
 });

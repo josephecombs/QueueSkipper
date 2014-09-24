@@ -1,0 +1,13 @@
+<form>
+  <input
+    type="text"
+    name="street_address"
+    value="<%= line.escape("street_address") %>"
+  >
+
+  <textarea name="description"><%= line.escape("description") %></textarea>
+
+  <input type="submit">
+</form>
+
+<a href="#/">Back</a>
