@@ -11,7 +11,7 @@ window.QueueSkipper = {
     Backbone.history.start();
   }
 };
-
+  
 $(document).ready(function(){
   QueueSkipper.initialize();
 });
