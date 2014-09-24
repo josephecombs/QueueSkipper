@@ -16,7 +16,7 @@ class Api::LineImagesController < ApplicationController
   end
   
   def destroy
-    #just destroy the record in the associations table, let JS actually destroy the image as it sits in S3
+    #just destroy the record in the join table, let JS actually destroy the image as it sits in S3
     @line_image = LineImage.find(params[:id])
     @line_image.destroy if @line_image
     render json: @line_image
