@@ -18,4 +18,5 @@
 class Line < ActiveRecord::Base
   
   has_many :line_images
+  has_many :line_listings
 end

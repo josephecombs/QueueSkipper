@@ -7,3 +7,15 @@
 </pre>
 
 <a href="#/">Index</a>
+
+<ul>
+  <% line_listings.each(function (line_listing) { %>
+    <li>
+      <a href="#/lines/<%= line.id %>/"><%= line_listing.escape("description") %></a>
+
+      <button class="delete" data-id="<%= line_listing.id %>">
+        Delete Line Listing!
+      </button>
+    </li>
+  <% }); %>
+</ul>
