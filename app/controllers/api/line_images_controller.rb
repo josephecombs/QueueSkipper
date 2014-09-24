@@ -1,7 +1,7 @@
 class Api::LineImagesController < ApplicationController
   def index
-    #not sure if this will actually return all images for a gvien line_listing
-    @line_images = LineImage.find_all_by_line_id(params[:line_id])
+    #not sure if this will actually return all images for a given line_listing
+    @line_images = LineImage.find_by_line_id(params[:line_id])
     render json: @line_images
   end
 

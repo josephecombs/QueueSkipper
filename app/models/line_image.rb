@@ -10,4 +10,6 @@
 #
 
 class LineImage < ActiveRecord::Base
+  belongs_to :line
 end
+

@@ -16,4 +16,6 @@
 #
 
 class Line < ActiveRecord::Base
+  
+  has_many :line_images
 end
