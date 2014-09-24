@@ -21,6 +21,7 @@ QueueSkipper.Views.LineShow = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'sync', this.render);
   },
 
   saveField: function (event) {
@@ -35,7 +36,8 @@ QueueSkipper.Views.LineShow = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      line: this.model
+      line: this.model,
+      line_listings: this.collection
     });
     this.$el.html(renderedContent);
 

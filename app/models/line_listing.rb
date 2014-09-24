@@ -31,6 +31,8 @@ class LineListing < ActiveRecord::Base
     primary_key: :id
   )
   
+  belongs_to :line
+  
   has_many :line_listing_images
 
   

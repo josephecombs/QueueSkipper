@@ -8,6 +8,8 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     "lines/new": "new",
     "lines/:id": "show",
     "lines/:id/edit": "edit"
+    //don't think I need this route.  Just need to render line_listings on the line page
+    // "lines/:id/line_listings": "showLineListings"
   },
 
   edit: function (id) {
@@ -41,10 +43,19 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
+    
     var line = QueueSkipper.Collections.lines.getOrFetch(id);
+    debugger;
+    var lineListings = QueueSkipper.Collections.lineListings.getOrFetch(id);
     var formView = new QueueSkipper.Views.LineShow({ model: line });
     this._swapView(formView);
   },
+  
+  // showLineListings: function (id) {
+  //   var line = QueueSkipper.Collections.lines.getOrFetch(id);
+  //   var formView = new QueueSkipper.Views.LineShow({ model: line });
+  //   this._swapView(formView);
+  // },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

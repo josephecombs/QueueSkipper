@@ -1,6 +1,7 @@
 class Api::LineListingsController < ApplicationController
   def index
-    @line_listings = LineListing.all
+    @line_listings = LineListing.where(line_id: params[:line_id])
+    # @line_listings = LineListing.all
     render json: @line_listings
   end
 
