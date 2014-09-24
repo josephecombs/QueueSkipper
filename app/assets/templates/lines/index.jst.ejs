@@ -1,0 +1,15 @@
+<ul>
+  <% lines.each(function (line) { %>
+    <li>
+      <a href="#/lines/<%= line.id %>"><%= line.escape("description") %></a>
+
+      <button class="delete" data-id="<%= line.id %>">
+        Delete!
+      </button>
+
+      <a href="#/lines/<%= line.id %>/edit">Edit</a>
+    </li>
+  <% }); %>
+</ul>
+
+<a href="#/lines/new">New Line</a>

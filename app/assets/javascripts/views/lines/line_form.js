@@ -1,9 +1,12 @@
 QueueSkipper.Views.LineForm = Backbone.View.extend({
-  tagName: 'form',
-  template: _.template("<label for='title'>Title</label><br><input type='text' name='title' id='title' value='<%= post.escape('title') %>'><br><label for='body'>Body</label><br><textarea name='body' id='body'><%= post.escape('body') %></textarea><br><button>Submit</button><a href='#/'>Back</a>"),
-
   events: {
-    'click button': 'submit'
+    'submit form': 'submit'
+  },
+
+  template: JST['lines/form'],
+
+  initialize: function(options) {
+    this.listenTo(this.model, 'sync', this.render);
   },
 
   render: function () {
@@ -11,12 +14,14 @@ QueueSkipper.Views.LineForm = Backbone.View.extend({
       line: this.model
     });
     this.$el.html(renderedContent);
+
     return this;
   },
 
   submit: function (event) {
     event.preventDefault();
-    var attrs = this.$el.serializeJSON();
+
+    var attrs = $(event.target).serializeJSON();
 
     function success () {
       Backbone.history.navigate("", { trigger: true });
@@ -25,7 +30,11 @@ QueueSkipper.Views.LineForm = Backbone.View.extend({
     this.model.set(attrs);
     if (this.model.isNew()) {
       this.collection.create(this.model, {
-        success: success
+        success: success,
+        // `wait: true` tells the collection to wait until the server has
+        // confirmed the model was saved successfully before adding it to
+        // itself
+        wait: true
       });
     } else {
       this.model.save({}, {

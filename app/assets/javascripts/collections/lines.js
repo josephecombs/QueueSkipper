@@ -1,4 +1,4 @@
-QueueSkipper.Collections.Posts = Backbone.Collection.extend({
+QueueSkipper.Collections.Lines = Backbone.Collection.extend({
   model: QueueSkipper.Models.Line,
   url: '/api/lines',
 
@@ -6,11 +6,11 @@ QueueSkipper.Collections.Posts = Backbone.Collection.extend({
   //   return line.get('votes');
   // },
 
-  findByVotes: function(votes) {
-    return this.filter(function(line) {
-      return line.get('votes') == votes;
-    });
-  },
+  // findByVotes: function(votes) {
+  //   return this.filter(function(line) {
+  //     return line.get('votes') == votes;
+  //   });
+  // },
 
   getOrFetch: function (id) {
     var line = this.get(id),
