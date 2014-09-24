@@ -10,4 +10,5 @@
 #
 
 class LineListingImage < ActiveRecord::Base
+  belongs_to :line_listing
 end

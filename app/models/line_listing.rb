@@ -30,4 +30,8 @@ class LineListing < ActiveRecord::Base
     foreign_key: :booker_id,
     primary_key: :id
   )
+  
+  has_many :line_listing_images
+
+  
 end

@@ -21,3 +21,12 @@ LineListing.create(lister_id: 3, price: '$35.00', line_id: 1, active: true, desc
 LineListing.create(lister_id: 4, price: '$20.00', line_id: 1, active: true, description: "Me and my sister Selma are waiting in line at the DMV, for a change")
 LineListing.create(lister_id: 2, price: '$5.00', line_id: 5, active: true, description: "Making a little money during App Academy's lunch")
 
+LineImage.create( line_id: 5, img_link: "http://www.tbd.com")
+LineImage.create( line_id: 5, img_link: "http://www.pwoiqrqp.com")
+LineImage.create( line_id: 1, img_link: "http://www.qwopierqpwiruqwe.com")
+
+LineListingImage.create( line_listing_id: 1, img_link: "http://blablablab.com/sdf.jpg")
+LineListingImage.create( line_listing_id: 1, img_link: "http://zzzzzz.com/oiwqyer.jpg")
+LineListingImage.create( line_listing_id: 3, img_link: "http://wiertopiu.com/2345s.jpg")
+
+
