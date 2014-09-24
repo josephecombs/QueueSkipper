@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  session_token   :string(255)
+#  password_digest :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -6,9 +18,16 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many(
-    :links,
-    class_name: "Link",
-    foreign_key: :user_id,
+    :line_listings,
+    class_name: "LineListing",
+    foreign_key: :lister_id,
+    primary_key: :id
+  )
+  
+  has_many(
+    :line_bookings,
+    class_name: "LineListing",
+    foreign_key: :booker_id,
     primary_key: :id
   )
 
