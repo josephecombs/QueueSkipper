@@ -1,0 +1,2 @@
+module LineListingImagesHelper
+end
