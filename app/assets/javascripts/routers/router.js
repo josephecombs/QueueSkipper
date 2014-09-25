@@ -1,6 +1,10 @@
 QueueSkipper.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.mapOptions = {
+      zoom: 8,
+      center: new google.maps.LatLng(-34.397, 150.644)
+    };
   },
 
   routes: {
@@ -27,6 +31,8 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(indexView);
+
+    // this.map = new google.maps.Map(document.getElementById('map-canvas'), this.mapOptions);
   },
 
   new: function () {

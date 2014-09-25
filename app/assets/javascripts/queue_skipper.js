@@ -3,6 +3,7 @@ window.QueueSkipper = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
     // QueueSkipper.lines = new QueueSkipper.Collections.Lines();
     new QueueSkipper.Routers.Router({
@@ -15,4 +16,4 @@ window.QueueSkipper = {
   
 $(document).ready(function(){
   QueueSkipper.initialize();
-});
+ });
