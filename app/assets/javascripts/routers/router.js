@@ -29,7 +29,7 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     var indexView = new QueueSkipper.Views.ListingsIndex({
       collection: QueueSkipper.Collections.listings
     });
-
+    
     this._swapView(indexView);
 
     // this.map = new google.maps.Map(document.getElementById('map-canvas'), this.mapOptions);
