@@ -1,24 +1,24 @@
-QueueSkipper.Views.LinesIndex = Backbone.View.extend({
+QueueSkipper.Views.ListingsIndex = Backbone.View.extend({
   events: {
-    'click .delete': 'destroyLine'
+    'click .delete': 'destroyListing'
   },
 
-  template: JST['lines/index'],
+  template: JST['listings/index'],
 
   initialize: function () {
     this.listenTo(this.collection, 'sync destroy', this.render);
   },
 
-  destroyLine: function (event) {
+  destroyListing: function (event) {
     var $target = $(event.target);
-    var line = this.collection.get($target.attr('data-id'));
+    var listing = this.collection.get($target.attr('data-id'));
 
-    line.destroy();
+    listing.destroy();
   },
 
   render: function () {
     var renderedContent = this.template({
-      lines: this.collection
+      listings: this.collection
     });
 
     this.$el.html(renderedContent);
