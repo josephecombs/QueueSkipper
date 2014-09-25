@@ -2,10 +2,10 @@
   <input
     type="text"
     name="street_address"
-    value="<%= line.escape("street_address") %>"
+    value="<%= listing.escape("street_address") %>"
   >
 
-  <textarea name="description"><%= line.escape("description") %></textarea>
+  <textarea name="description"><%= listing.escape("description") %></textarea>
 
   <input type="submit">
 </form>

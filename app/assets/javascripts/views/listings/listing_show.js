@@ -21,7 +21,6 @@ QueueSkipper.Views.ListingShow = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.collection, 'sync', this.render);
   },
 
   saveField: function (event) {
