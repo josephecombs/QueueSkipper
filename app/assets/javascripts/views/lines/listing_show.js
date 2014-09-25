@@ -1,5 +1,5 @@
-QueueSkipper.Views.LineShow = Backbone.View.extend({
-  template: JST['lines/show'],
+QueueSkipper.Views.ListingShow = Backbone.View.extend({
+  template: JST['listings/show'],
 
   events: {
     'dblclick .editable': 'editField',
@@ -36,8 +36,7 @@ QueueSkipper.Views.LineShow = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      line: this.model,
-      line_listings: this.collection
+      listing: this.model
     });
     this.$el.html(renderedContent);
 
