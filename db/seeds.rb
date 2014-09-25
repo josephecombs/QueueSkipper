@@ -10,10 +10,14 @@ User.create(username: "guest", password: "password1")
 User.create(username: "joe", password: "joejoe", img_url: "http://archive.wizards.com/mtg/images/daily/events/gpauc08/T8_combs.jpg")
 User.create(username: "selma", password: "Springfield", img_url: "http://img1.wikia.nocookie.net/__cb20140826210408/simpsons/images/b/ba/Selma_Bouvier.png")
 User.create(username: "patty", password: "Bouvier", img_url: "http://upload.wikimedia.org/wikipedia/en/f/f8/Patty_Bouvier.png")
+User.create(username: "matt", password: "leick1", img_url: "http://m.c.lnkd.licdn.com/mpr/pub/image-es1d6PGhM_mNG_CrxGEFpf-zV2xwItEPoy1D0hshVmKzQgcOes1DRTfhVdwSlW3-cqnP/matthew-leick.jpg")
+
 
 Listing.create(eta: '14:05:06 PST', est_duration: '00:30:00', max_price: '$20.00', lister_id: 2, description: "Making a little money during App Academy's lunch, at a Generic SF Food Truck", latitude: 37.780011, longitude: -122.259845)
 Listing.create(eta: '15:00:00 PST', est_duration: '00:45:00', max_price: '$35.00', lister_id: 3, description: "Come trade spots with me, Selma Bouvier, at the SF DMV line", latitude: 37.773413, longitude: -122.440459)
 Listing.create(eta: '15:20:00 PST', est_duration: '01:05:00', max_price: '$40.00', lister_id: 4, description: "Me and my sister Selma are waiting in line at the DMV, for a change.  I'm at the Oakland DMV", latitude: 37.839537, longitude: -122.259845)
+Listing.create(eta: '16:20:00 PST', est_duration: '02:05:00', max_price: '$40.00', lister_id: 5, description: "Arbitraging time right now!", latitude: 37.780097, longitude: -122.413574)
+
 
 # Line.create(latitude: 37.773413, longitude: -122.440459, street_address: "1377 Fell St", city: "San Francisco", state: "CA", zip: 94117, floor: 1, description: "SF DMV Line")
 # Line.create(latitude: 37.689241, longitude: -122.472895, street_address: "1500 Sullivan Ave", city: "Daly City", state: "CA", zip: 94015, floor: 1, description: "Daly City DMV Line")
