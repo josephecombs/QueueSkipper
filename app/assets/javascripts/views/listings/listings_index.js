@@ -14,6 +14,7 @@ QueueSkipper.Views.ListingsIndex = Backbone.View.extend({
     };
 
     var that = this;
+    //updates this.mapOptions to user's geolocation
     navigator.geolocation.getCurrentPosition( 
       function(position) { 
         console.log(position.coords.latitude + " AAA " +
