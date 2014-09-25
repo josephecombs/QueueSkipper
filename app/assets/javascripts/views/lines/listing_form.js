@@ -1,9 +1,9 @@
-QueueSkipper.Views.LineForm = Backbone.View.extend({
+QueueSkipper.Views.ListingForm = Backbone.View.extend({
   events: {
     'submit form': 'submit'
   },
 
-  template: JST['lines/form'],
+  template: JST['listings/form'],
 
   initialize: function(options) {
     this.listenTo(this.model, 'sync', this.render);
@@ -11,7 +11,7 @@ QueueSkipper.Views.LineForm = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      line: this.model
+      listing: this.model
     });
     this.$el.html(renderedContent);
 
