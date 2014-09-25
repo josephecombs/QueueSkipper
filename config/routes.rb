@@ -6,13 +6,7 @@ QueueSkipper::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   
   namespace :api, defaults: { format: :json } do
-    resources :lines, only: [:index, :show, :create, :update, :destroy] do
-      resources :line_listings, only: [:index, :create]
-    end
-    # resources :line_listings, only: [:index, :show, :create, :update, :destroy]
-    resources :line_listings, only: [:show, :update]
-    resources :line_images, only: [:index, :create, :destroy]
-    resources :line_listing_images, only: [:index, :create, :destroy]
+    resources :listings, only: [:index, :show, :create, :update, :destroy]
   end
 
 end
