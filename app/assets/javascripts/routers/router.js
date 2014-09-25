@@ -5,38 +5,36 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "lines/new": "new",
-    "lines/:id": "show",
-    "lines/:id/edit": "edit"
-    //don't think I need this route.  Just need to render line_listings on the line page
-    // "lines/:id/line_listings": "showLineListings"
+    "listings/new": "new",
+    "listings/:id": "show",
+    "listings/:id/edit": "edit"
   },
 
   edit: function (id) {
-    var line = QueueSkipper.Collections.lines.getOrFetch(id);
+    var listing = QueueSkipper.Collections.listings.getOrFetch(id);
 
-    var formView = new QueueSkipper.Views.LineForm({
-      model: line
+    var formView = new QueueSkipper.Views.ListingForm({
+      model: listing
     });
 
     this._swapView(formView);
   },
 
   index: function () {
-    QueueSkipper.Collections.lines.fetch();
-    var indexView = new QueueSkipper.Views.LinesIndex({
-      collection: QueueSkipper.Collections.lines
+    QueueSkipper.Collections.listings.fetch();
+    var indexView = new QueueSkipper.Views.ListingsIndex({
+      collection: QueueSkipper.Collections.listings
     });
 
     this._swapView(indexView);
   },
 
   new: function () {
-    var newLine = new QueueSkipper.Models.Line();
+    var newListing = new QueueSkipper.Models.Listing();
 
-    var formView = new QueueSkipper.Views.LineForm({
-      collection: QueueSkipper.Collections.lines,
-      model: newLine
+    var formView = new QueueSkipper.Views.ListingForm({
+      collection: QueueSkipper.Collections.listings,
+      model: newListing
     });
 
     this._swapView(formView);
@@ -44,16 +42,16 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     
-    var line = QueueSkipper.Collections.lines.getOrFetch(id);
+    var listing = QueueSkipper.Collections.listings.getOrFetch(id);
     debugger;
-    var lineListings = QueueSkipper.Collections.lineListings.getOrFetch(id);
-    var formView = new QueueSkipper.Views.LineShow({ model: line });
+    var listingListings = QueueSkipper.Collections.listingListings.getOrFetch(id);
+    var formView = new QueueSkipper.Views.ListingShow({ model: listing });
     this._swapView(formView);
   },
   
-  // showLineListings: function (id) {
-  //   var line = QueueSkipper.Collections.lines.getOrFetch(id);
-  //   var formView = new QueueSkipper.Views.LineShow({ model: line });
+  // showListingListings: function (id) {
+  //   var listing = QueueSkipper.Collections.listings.getOrFetch(id);
+  //   var formView = new QueueSkipper.Views.ListingShow({ model: listing });
   //   this._swapView(formView);
   // },
 
