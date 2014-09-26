@@ -1,0 +1,86 @@
+QueueSkipper.Views.MapView = Backbone.View.extend({
+  initialize: function () {
+    this.listenTo(this.collection, "add", this.addListingPin);
+    this.listenTo(this.collection, "remove", this.removeListingPin);
+    this.mapOptions = {
+      zoom: 10,
+      center: new google.maps.LatLng(43.140023, -77.572386)
+    };
+    this.mapBounds = {
+      topLeft: [],
+      bottomRight: []
+    };
+    navigator.geolocation.getCurrentPosition(
+      this.positionSuccess.bind(this), 
+      this.positionError.bind(this)
+    );
+    //add all the listings that we have at initialize time
+    this.collection.each(this.addListingPin.bind(this));
+  },
+  
+  template: JST["search/map_view"],
+  
+  positionSuccess: function(position){
+    this.mapOptions.center = new google.maps.LatLng(
+      position.coords.latitude,
+      position.coords.longitude
+    );
+    this.map.setCenter(this.mapOptions.center);
+  },
+  
+  positionError: function(){
+    alert('you must give position!');
+  },
+  
+  addListingPin: function(listing){
+    var myLatLng = new google.maps.LatLng(
+      listing.attributes.latitude,
+      listing.attributes.longitude
+    );
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: this.map,
+      title: listing.attributes.description
+    });
+  },
+  
+  removeListingPin: function(listing){
+    //write this later
+    //find it by lat/lon, remove from map
+  },
+
+  render: function(){
+    this.$el.html(this.template);
+    this.mapify();
+    return this;
+  },
+  
+  mapify: function(){
+    this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
+    
+    //we need to debounce this to prevent spamming the server with requests
+    google.maps.event.addListener(
+      this.map,
+      'bounds_changed',
+      this.mapMoved.bind(this)
+    );
+  },
+  
+  mapMoved: function(){
+    var bounds = this.map.getBounds();
+    this.mapBounds.topLeft = [bounds.Ea.j, bounds.ua.j];
+    this.mapBounds.bottomRight = [bounds.Ea.k, bounds.ua.k];
+    var opts = { 
+      data:{
+        bounds: { 
+          tl_lat: this.mapBounds.topLeft[0], 
+          tl_long: this.mapBounds.topLeft[1], 
+          br_lat: this.mapBounds.bottomRight[0], 
+          br_long: this.mapBounds.bottomRight[1] 
+        }
+      }
+    };
+    
+    this.collection.fetch(opts);
+  }
+})

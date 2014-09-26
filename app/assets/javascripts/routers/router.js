@@ -1,10 +1,6 @@
 QueueSkipper.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.mapOptions = {
-      zoom: 8,
-      center: new google.maps.LatLng(-34.397, 150.644)
-    };
   },
 
   routes: {
@@ -25,14 +21,17 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    QueueSkipper.Collections.listings.fetch();
-    var indexView = new QueueSkipper.Views.ListingsIndex({
+    // QueueSkipper.Collections.listings.getOrFetch();
+    //this works, kind of:
+    // QueueSkipper.Collections.listings.fetch();
+    // var indexView = new QueueSkipper.Views.ListingsIndex({
+    //   collection: QueueSkipper.Collections.listings
+    // });
+    var searchView = new QueueSkipper.Views.SearchView({
       collection: QueueSkipper.Collections.listings
     });
-    
-    this._swapView(indexView);
-
-    // this.map = new google.maps.Map(document.getElementById('map-canvas'), this.mapOptions);
+    QueueSkipper.Collections.listings.fetch();
+    this._swapView(searchView);
   },
 
   new: function () {
@@ -43,7 +42,7 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
       model: newListing
     });
 
-    this._swapView(formView);mn    
+    this._swapView(formView);
   },
 
   show: function (id) {
