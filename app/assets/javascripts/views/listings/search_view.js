@@ -7,7 +7,9 @@ QueueSkipper.Views.SearchView = Backbone.View.extend({
       collection: this.collection
     }).render();
   },
+  
   template: JST['search/search_view'],
+  
   render: function(){
     this.$el.html(this.template);
     this.$('#map').html(this.mapView.$el);
