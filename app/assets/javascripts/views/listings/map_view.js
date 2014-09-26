@@ -61,7 +61,7 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     //we need to debounce this to prevent spamming the server with requests
     google.maps.event.addListener(
       this.map,
-      'bounds_changed',
+      'idle',
       this.mapMoved.bind(this)
     );
   },
