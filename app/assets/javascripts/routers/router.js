@@ -12,7 +12,7 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   edit: function (id) {
     var listing = QueueSkipper.Collections.listings.getOrFetch(id);
-
+    d
     var formView = new QueueSkipper.Views.ListingForm({
       model: listing
     });
@@ -21,12 +21,6 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    // QueueSkipper.Collections.listings.getOrFetch();
-    //this works, kind of:
-    // QueueSkipper.Collections.listings.fetch();
-    // var indexView = new QueueSkipper.Views.ListingsIndex({
-    //   collection: QueueSkipper.Collections.listings
-    // });
     var searchView = new QueueSkipper.Views.SearchView({
       collection: QueueSkipper.Collections.listings
     });
