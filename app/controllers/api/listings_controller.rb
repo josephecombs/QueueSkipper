@@ -1,7 +1,26 @@
 class Api::ListingsController < ApplicationController
   def index
-    # @listings = Listing.where(line_id: params[:line_id])
-    @listings = Listing.all
+    bounds = params[:bounds]    
+    if bounds
+      where_string = <<-SQL
+        longitude < ? and 
+        longitude > ? and 
+        latitude > ? and
+        latitude < ?
+        SQL
+        
+      @listings = Listing.all.where(
+        where_string,
+        bounds[:br_long],
+        bounds[:tl_long],
+        bounds[:br_lat],
+        bounds[:tl_lat]
+      )
+      # @listings = Listing.where(line_id: params[:lat])
+    else
+      @listings = Listing.all
+    end    
+
     render json: @listings
   end
 
@@ -49,3 +68,16 @@ end
 # t.float :latitude
 # t.float :longitude
 # t.text :description
+
+# @listings = Listing.where(line_id: params[:line_id])
+
+# tlt = top left latitude
+# tlg = top left longitude
+# brt = bottom right latitude
+# brg = bottom right longitude
+# sample api call that works: http://localhost:3000/api/listings/?tlt=0.000&tlg=0.000&brt=-1.000&brg=1.000
+
+# http://localhost:3000/api/listings/?tlt=37.835573&tlg=-122.547144&brt=37.737895&brg=-122.361750
+
+#JS fetch I have attempted with the above:
+#listing.fetch({ success: function () { listings.add(listing); }, options: { tlt: 37.835573, tlg: -122.547144, brt: 37.737895, brg: -122.361750 } })
