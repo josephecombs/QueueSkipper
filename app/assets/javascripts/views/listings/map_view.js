@@ -42,6 +42,17 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
       map: this.map,
       title: listing.attributes.description
     });
+    
+    //create the infowindow associated with the markers
+    var infowindow = new google.maps.InfoWindow({
+      // content: contentString
+      content: "HI MOM"
+    });
+    
+    google.maps.event.addListener(marker, 'click', function() {
+      debugger;
+      infowindow.open(this.map, marker);
+    }.bind(this));
   },
   
   removeListingPin: function(listing){
