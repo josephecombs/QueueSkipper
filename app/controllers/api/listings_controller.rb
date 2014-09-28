@@ -9,7 +9,7 @@ class Api::ListingsController < ApplicationController
         latitude < ?
         SQL
         
-      @listings = Listing.where(
+      @listings = Listing.all.where(
       # @listings = Listing.all.where(
         where_string,
         bounds[:br_long],
