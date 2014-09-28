@@ -3,13 +3,19 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     this.listenTo(this.collection, "add", this.addListingPin);
     this.listenTo(this.collection, "remove", this.removeListingPin);
     this.mapOptions = {
-      zoom: 10,
-      center: new google.maps.LatLng(43.140023, -77.572386)
+      zoom: 1,
+      center: new google.maps.LatLng(43.140023, -77.572386),
+      mapTypeId: google.maps.MapTypeId.HYBRID      
     };
     this.mapBounds = {
       topLeft: [],
       bottomRight: []
     };
+    //map can only have one InfoWindow
+    this.infoWindow = new google.maps.InfoWindow({
+      // content: contentString
+      content: "HI MOM"
+    });
     navigator.geolocation.getCurrentPosition(
       this.positionSuccess.bind(this), 
       this.positionError.bind(this)
@@ -25,6 +31,9 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
       position.coords.latitude,
       position.coords.longitude
     );
+
+    this.map.setZoom(10);
+    
     this.map.setCenter(this.mapOptions.center);
   },
   
@@ -43,15 +52,13 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
       title: listing.attributes.description
     });
     
-    //create the infowindow associated with the markers
-    var infowindow = new google.maps.InfoWindow({
-      // content: contentString
-      content: "HI MOM"
-    });
-    
     google.maps.event.addListener(marker, 'click', function() {
-      debugger;
-      infowindow.open(this.map, marker);
+      window.$('button').css('background-color', 'transparent');
+      window.$('li.listings-index-item [data-id=' + listing.attributes.id + ']').css('background-color', 'lightPink');
+      if (this.infoWindow) {
+        this.infoWindow.close();
+      }
+      this.infoWindow.open(this.map, marker);
     }.bind(this));
   },
   

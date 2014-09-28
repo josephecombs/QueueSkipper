@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
 gem 'rails_12factor'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'pry-rails'
