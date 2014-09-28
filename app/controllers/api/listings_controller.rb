@@ -16,10 +16,11 @@ class Api::ListingsController < ApplicationController
         bounds[:tl_long],
         bounds[:br_lat],
         bounds[:tl_lat]
-      )
+      ).where(active: true)
       # @listings = Listing.where(line_id: params[:lat])
     else
-      @listings = Listing.all
+      ##can't really think of a time this api call won't have coords 
+      # @listings = Listing.all
     end    
 
     render json: @listings
