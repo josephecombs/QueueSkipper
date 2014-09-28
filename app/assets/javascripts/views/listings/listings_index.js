@@ -19,9 +19,7 @@ QueueSkipper.Views.ListingsIndex = Backbone.CompositeView.extend({
     });
     
     this.addSubview('#listings-index-items', listingsIndexItem);
-    
-    ////old way:
-    // $('ul').append('<li data-id=' + listing.attributes.id + '>' + listing.attributes.description + '</li>');
+
   },
   
   removeListingItem: function (listing) {
