@@ -32,6 +32,9 @@ QueueSkipper.Views.ListingsIndexItem = Backbone.View.extend({
     if (this.curModalView) {
       this.curModalView.remove();
     }
+    
+    debugger;
+    
     this.modalView = this.modalView || 
       new QueueSkipper.Views.ListingsIndexItemModal({ model: this.model });
     $('body').prepend(this.modalView.render().$el);

@@ -27,8 +27,26 @@ class Api::ListingsController < ApplicationController
   end
 
   def show
-    @line_listing = Listing.find(params[:id])
-    render json: @line_listing
+    @listing = Listing.find(params[:id])
+    @lister = @listing.lister
+    @lister.password_digest = ""
+    @lister.session_token = ""
+    @booker = @listing.booker
+    if @booker
+      @booker.password_digest = ""
+      @booker.session_token = ""
+    end
+    #clean this up later
+    response = { 
+      eta: @listing.eta,
+      est_duration: @listing.est_duration,
+      max_price: @listing.max_price,
+      latitude: @listing.latitude,
+      longitude: @listing.longitude,
+      listing: @listing, 
+      lister: @lister, 
+      booker: @booker }
+    render json: response
   end
 
   def create
