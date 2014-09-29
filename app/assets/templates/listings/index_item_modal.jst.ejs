@@ -7,9 +7,8 @@
   <h4><%= listingIndexItem.escape('description') %></h4>
     <h6 class="confirm-message">$<%= listingIndexItem.escape('max_price') %> will be deducted from your account.</h6>
     
-    <img src=<%= listingIndexItem.attributes.lister.img_url %>>
-    <img src=<%= listingIndexItem.escape('lister.img_url') %>>
-    <button class="finalize-button">Finalize Transaction</button>
+    <img class="modal-profile-pic" src=<%= listingIndexItem.attributes.lister.img_url %>>
+    <button class="btn finalize-button">Finalize Transaction</button>
   <div class="listing-index-item-info">
     
   </div>
