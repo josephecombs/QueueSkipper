@@ -11,7 +11,34 @@
   position: absolute;
   left: 25%;
   z-index: 1032;
-  background-color: #f0f0f0;  
+  background-color: #FFFFFF;  
   border-radius: 3px;
+  border: thick solid black;
   padding: 15px;
+  top: 10%;
+}
+
+.modal-profile-pic {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-height: 150 px;
+  max-width: 75 px;
+}
+
+.finalize-button {
+  width: 100%;
+  height: 30%;
+
+  border: thin solid black;
+}
+
+#map {
+//  width: 40%;
+  float: left;
+}
+
+#listings-index {
+  width: 55%;
+//  float: right;
 }
