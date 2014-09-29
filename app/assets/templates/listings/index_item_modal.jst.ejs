@@ -3,8 +3,11 @@
 
 <div class="listings-index-item-modal">
   <a class="listings-index-item-modal-dismiss glyphicon glyphicon-remove" href="javascript:void(0)"></a>
-  <h3>just a test</h3>
+
   <h4><%= listingIndexItem.escape('description') %></h4>
+  <ul>
+    <li><%= listingIndexItem.escape('max_price') %></li>
+    <img src=<%= listingIndexItem.escape('lister.img_url') %>>
   <div class="listing-index-item-info">
     
   </div>
