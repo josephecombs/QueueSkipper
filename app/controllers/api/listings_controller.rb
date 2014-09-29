@@ -19,34 +19,16 @@ class Api::ListingsController < ApplicationController
       ).where(active: true)
       # @listings = Listing.where(line_id: params[:lat])
     else
-      ##can't really think of a time this api call won't have coords 
+      ##bestow user with SF coords if they childishly refuse to give us their lat/long
       # @listings = Listing.all
     end    
-
-    render json: @listings
+    
+    render :index
   end
 
   def show
     @listing = Listing.find(params[:id])
-    @lister = @listing.lister
-    @lister.password_digest = ""
-    @lister.session_token = ""
-    @booker = @listing.booker
-    if @booker
-      @booker.password_digest = ""
-      @booker.session_token = ""
-    end
-    #clean this up later
-    response = { 
-      eta: @listing.eta,
-      est_duration: @listing.est_duration,
-      max_price: @listing.max_price,
-      latitude: @listing.latitude,
-      longitude: @listing.longitude,
-      listing: @listing, 
-      lister: @lister, 
-      booker: @booker }
-    render json: response
+    render :show
   end
 
   def create

@@ -2,7 +2,7 @@ QueueSkipper.Views.ListingsIndexItem = Backbone.View.extend({
   template: JST["listings/index_item"],
   
   initialize: function () {
-    
+
   },
   
   events: {
@@ -32,8 +32,6 @@ QueueSkipper.Views.ListingsIndexItem = Backbone.View.extend({
     if (this.curModalView) {
       this.curModalView.remove();
     }
-    
-    debugger;
     
     this.modalView = this.modalView || 
       new QueueSkipper.Views.ListingsIndexItemModal({ model: this.model });
