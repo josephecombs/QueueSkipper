@@ -11,6 +11,7 @@ QueueSkipper.Views.ListingsIndex = Backbone.CompositeView.extend({
     
     this.listenTo(this.collection, "add", this.addListingItem);
     this.listenTo(this.collection, "remove", this.removeListingItem);
+    this.curModalView = "test";
   },
   
   addListingItem: function (listing) {
