@@ -17,13 +17,12 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
     
     //selected lat/long will go in here
     this.selectedPosition = { latitude: 0.00, longitude: 0.00 };
-    
-    google.maps.event.addListener(this.map, "rightClick", this.rightClicked(event))
   },
   
-  template: JST["listing/new_listing_map"],
+  template: JST["listings/new_listing_map"],
   
   positionSuccess: function(position){
+
     this.mapOptions.center = new google.maps.LatLng(
       position.coords.latitude,
       position.coords.longitude
@@ -48,11 +47,12 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
   mapify: function(){
     this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
     
-    google.maps.event.addListener(
-      this.map,
-      'idle',
-      this.mapMoved.bind(this)
-    );
+    //put in new listener here, the one I currently have commented out in initialize
+    // google.maps.event.addListener(
+    //   this.map,
+    //   'idle',
+    //   this.mapMoved.bind(this)
+    // );
   },
   
   rightClicked: function (event) {
