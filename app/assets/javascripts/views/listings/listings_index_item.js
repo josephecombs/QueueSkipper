@@ -38,6 +38,9 @@ QueueSkipper.Views.ListingsIndexItem = Backbone.View.extend({
     $('body').prepend(this.modalView.render().$el);
     this.curModalView = this.modalView;
     
+    //place the browser's focus on the modal after it is created so we can esc out of it quickly
+    $('.listings-index-item-modal').focus();
+    
     this.modalView.delegateEvents();
   }
 });

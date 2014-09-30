@@ -32,7 +32,6 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     var newListing = new QueueSkipper.Models.Listing();
 
     var formView = new QueueSkipper.Views.NewListingView({
-      collection: QueueSkipper.Collections.listings,
       model: newListing
     });
 
