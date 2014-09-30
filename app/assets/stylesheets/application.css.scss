@@ -1,19 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-//#map-canvas {
-//  height: 800px;
-//  width: 1000px;
-//  position: relative;
-//  overflow: hidden;
-//  -webkit-transform: translateZ(0px);
-//};
-
 #map-canvas {
+  height: 800px;
+  width: 100`%;
   position: relative;
-  height: 100%;
-  width: 40%;
-}
+  overflow: hidden;
+  -webkit-transform: translateZ(0px);
+};
+
+//#map-canvas {
+//  position: relative;
+//  height: 100%;
+//  width: 40%;
+//}
 
 .listings-index-item-modal {
   width: 50%;
