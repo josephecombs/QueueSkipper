@@ -1,10 +1,11 @@
 QueueSkipper.Views.NewListingView = Backbone.View.extend({
   initialize: function(){
-    this.mapView = new QueueSkipper.Views.MapView({
-      collection: this.collection
+    debugger;
+    this.mapView = new QueueSkipper.Views.NewListingMapView({
+      model: this.model
     }).render();
-    this.listingsIndex = new QueueSkipper.Views.ListingsIndex({
-      collection: this.collection
+    this.listingsIndex = new QueueSkipper.Views.NewListingSidebar({
+      model: this.model
     }).render();
   },
   
@@ -13,7 +14,7 @@ QueueSkipper.Views.NewListingView = Backbone.View.extend({
   render: function(){
     this.$el.html(this.template);
     this.$('#map').html(this.mapView.$el);
-    this.$('#listings-index').html(this.listingsIndex.$el);
+    this.$('#new-listing-sidebar').html(this.listingsIndex.$el);
     return this;
   },
 });

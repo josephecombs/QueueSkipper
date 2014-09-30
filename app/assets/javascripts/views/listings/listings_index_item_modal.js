@@ -7,7 +7,15 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
   
   events: {
     'click .listings-index-item-modal-dismiss': 'dismiss',
-    'click .listings-index-item-modal-book': 'book'
+    'click .listings-index-item-modal-book': 'book',
+    'keyup .listings-index-item-modal': 'keyDownHandler'
+  },
+  
+  keyDownHandler: function (event) {
+    // debugger;
+    switch (event.which) {
+      case 27: this.remove();
+    }
   },
   
   dismiss: function (event) {
@@ -28,7 +36,6 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
       //check ordering of status and response
       success: function (model, response, status) {
         //successfully booked listing
-        console.log(response);
         this.$('.listings-index-item-modal').append('<div>THESE ARE THE DAYS WEVE BEEN WAITING FOR</div>');
       },
       error: function (model, response, status) {
