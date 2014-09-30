@@ -10,15 +10,15 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     "listings/:id/edit": "edit"
   },
 
-  edit: function (id) {
-    var listing = QueueSkipper.Collections.listings.getOrFetch(id);
-    d
-    var formView = new QueueSkipper.Views.ListingForm({
-      model: listing
-    });
-
-    this._swapView(formView);
-  },
+  // edit: function (id) {
+  //   var listing = QueueSkipper.Collections.listings.getOrFetch(id);
+  //   d
+  //   var formView = new QueueSkipper.Views.ListingForm({
+  //     model: listing
+  //   });
+  //
+  //   this._swapView(formView);
+  // },
 
   index: function () {
     var searchView = new QueueSkipper.Views.SearchView({
@@ -31,7 +31,7 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   new: function () {
     var newListing = new QueueSkipper.Models.Listing();
 
-    var formView = new QueueSkipper.Views.ListingForm({
+    var formView = new QueueSkipper.Views.NewListingView({
       collection: QueueSkipper.Collections.listings,
       model: newListing
     });
@@ -39,11 +39,11 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     this._swapView(formView);
   },
 
-  show: function (id) {
-    var listing = QueueSkipper.Collections.listings.getOrFetch(id);
-    var formView = new QueueSkipper.Views.ListingShow({ model: listing });
-    this._swapView(formView);
-  },
+  // show: function (id) {
+  //   var listing = QueueSkipper.Collections.listings.getOrFetch(id);
+  //   var formView = new QueueSkipper.Views.ListingShow({ model: listing });
+  //   this._swapView(formView);
+  // },
   
   // showListingListings: function (id) {
   //   var listing = QueueSkipper.Collections.listings.getOrFetch(id);

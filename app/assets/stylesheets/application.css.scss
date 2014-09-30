@@ -1,6 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#pre-login {
+  padding-top: 50px;
+}
+
+#content {
+  padding-top: 50px;
+}
+
+.btn-listing {
+  background-color: orange;
+  color: black;
+}
+
 #map-canvas {
   height: 800px;
   width: 100%;
