@@ -13,9 +13,8 @@ QueueSkipper.Collections.Listings = Backbone.Collection.extend({
           listings.add(listing);
         },
       });
-      // listing.fetch({ success: function () { listings.add(listing); }, options: { tlt: 37.835573, tlg: -122.547144, brt: 37.737895, brg: -122.361750 } });
+
     } else {
-      //may need to pass in mapBounds here
 
       listing.fetch();
       

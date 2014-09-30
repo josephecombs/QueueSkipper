@@ -76,7 +76,6 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
   mapify: function(){
     this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
     
-    //we need to debounce this to prevent spamming the server with requests
     google.maps.event.addListener(
       this.map,
       'idle',

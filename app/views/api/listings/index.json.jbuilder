@@ -6,7 +6,9 @@ json.array! @listings do |listing|
   json.extract! listing, :latitude
   json.extract! listing, :longitude
   json.extract! listing, :description
-  json.extract! listing, :created_at  
+  json.extract! listing, :created_at
+  json.extract! listing, :lister_id
+  json.extract! listing, :booker_id
   
   json.lister do
     json.id listing.lister.id

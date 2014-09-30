@@ -42,17 +42,60 @@ class Api::ListingsController < ApplicationController
 
   def update
     @listing = Listing.find(params[:id])
-    if @listing.update_attributes(listing_params)
+
+    #1. check that booker_id field is null and that the listing is active
+    if @listing.booker_id.nil? && @listing.active
+      #2. check that booker has available funds 
+      #
+      #3. make transfer
+      #
+      #4. place current_user's id into booker field
+      @listing.booker_id = current_user.id
+      #5. set listing to inactive        
+      @listing.active = false
+      #6. notify both parties via text (twilio?)
+      #
+      @listing.save!
       render json: @listing
     else
+      #listing is gone, for whatever reason -- lister deleted it or has been booked already
+      @listing.errors.add(:listing, "is no longer available")
       render json: @listing.errors.full_messages, status: 422
     end
+  # end
   end
 
   def destroy
     @listing = Listing.find(params[:id])
     @listing.destroy if @listing
     render json: @listing
+  end
+  
+  def book
+    @listing = Listing.find(params[:id])
+    
+    if @listing.booker_id.nil? && @listing.active
+      #2. check that booker has available funds 
+      #
+      #3. make transfer
+      #
+      #4. place current_user's id into booker field
+      @listing.booker_id = current_user.id
+      #5. set listing to inactive        
+      @listing.active = false
+      #6. notify both parties via text (twilio?)
+      #
+      if @listing.save
+        render json: @listing
+      else
+        render json: @listing.errors.full_messages, status: 422
+        #fill this in later
+      end
+    else
+      #listing is gone, for whatever reason -- lister deleted it or has been booked already
+      @listing.errors.add(:listing, "is no longer available")
+      render json: @listing.errors.full_messages, status: 422
+    end
   end
   
   private
