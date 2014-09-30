@@ -13,6 +13,30 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
   dismiss: function (event) {
     event.preventDefault();
     this.remove();
+  },  
+  
+  book: function () {
+    this.$('.listings-index-item-modal-book').hide();
+    
+    this.$('.modal-profile-pic').addClass('spinner');
+
+    // this.model.set(booker_id: //something goes here I'll figure out what I have access to here
+    
+    this.model.save({}, {
+      url: 'api/listings/' + this.model.get('id') + '/book',
+      type: 'post',
+      //check ordering of status and response
+      success: function (model, response, status) {
+        //successfully booked listing
+        console.log(response);
+        this.$('.listings-index-item-modal').append('<div>THESE ARE THE DAYS WEVE BEEN WAITING FOR</div>');
+      },
+      error: function (model, response, status) {
+        console.log(response);
+        //display the response object
+      }
+    });
+    
   },
   
   render: function () {
@@ -23,4 +47,5 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
     this.attachSubviews();
     return this;
   }
+  
 });

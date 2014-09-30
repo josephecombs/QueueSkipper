@@ -6,7 +6,11 @@ QueueSkipper::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   
   namespace :api, defaults: { format: :json } do
-    resources :listings, only: [:index, :show, :create, :update, :destroy]
+    resources :listings, only: [:index, :show, :create, :update, :destroy] do
+      member do
+        post :book
+      end
+    end
   end
 
 end
