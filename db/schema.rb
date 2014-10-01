@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20140924235759) do
   create_table "listings", force: true do |t|
     t.datetime "eta"
     t.datetime "est_duration"
-    t.decimal  "max_price",    precision: 2, scale: 0, null: false
-    t.integer  "lister_id",                            null: false
+    t.decimal  "max_price",    null: false
+    t.integer  "lister_id",    null: false
     t.integer  "booker_id"
     t.boolean  "active"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.text     "description",                          null: false
+    t.float    "latitude",     null: false
+    t.float    "longitude",    null: false
+    t.text     "description",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

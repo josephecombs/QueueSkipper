@@ -3,7 +3,7 @@ class CreateListings < ActiveRecord::Migration
     create_table :listings do |t|
       t.timestamp :eta
       t.timestamp :est_duration
-      t.decimal :max_price, null: false, precision: 2
+      t.decimal :max_price, null: false
       t.integer :lister_id, null: false
       t.integer :booker_id
       t.boolean :active
