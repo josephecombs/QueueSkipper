@@ -9,6 +9,11 @@
   padding-top: 50px;
 }
 
+.brand:hover {
+  transition: all .5s ease-in-out;
+  background-color: orange;
+}
+
 .btn-listing {
   background-color: orange;
   color: black;
@@ -20,6 +25,7 @@
   position: relative;
   overflow: hidden;
   -webkit-transform: translateZ(0px);
+  z-index: 1;
 };
 
 //#map-canvas {
@@ -73,6 +79,16 @@
 //  float: right;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #f5f5f5;
+  text-align: right;
+  z-index: 0;
+}
+
 //spinners from https://github.com/tobiasahlin/SpinKit/blob/master/1-rotating-plane.html
 .spinner {
   width: 10%;
@@ -104,3 +120,4 @@
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
+
