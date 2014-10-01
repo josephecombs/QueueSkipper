@@ -1,6 +1,7 @@
 TODO:
-
-1.) figure out why gmaps isnt completely reloading on backbone route calls
-2.) how to make timepickers
-3.) finish "submit new item"
-4.) perhaps color spots on the map the same as their corresponding buttons in the listings index?
+1.) fix timepicker
+1a.) form validation errors
+1b.) info question marks on form fields
+2.) clean up backbone listing subviews
+3.) need more new user/splash flows
+4.) "About"/"Contact"
