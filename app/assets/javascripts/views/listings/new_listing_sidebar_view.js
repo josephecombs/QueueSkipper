@@ -11,8 +11,23 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
   },
   
   submit: function () {
-    console.log("these are the days we've been waiting for");
-    console.log(this.model)
+
+    console.log(this.model);
+    
+    this.model.set({
+      latitude: this.$('#selected_latitude').val(),
+      longitude: this.$('#selected_longitude').val(),
+      max_price: this.$('#max_price').val(),
+      description: this.$('#listing_description').val(),
+      eta: this.$('#datepicker1').val() + " " + this.$('#timepicker1').val()
+    });
+    
+    //perform client-side validations on user input
+    
+    debugger;
+    
+    this.$('div#description').addClass('has-success');
+    debugger;
   },
 
   render: function () {

@@ -33,17 +33,20 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
     
     this.map.setCenter(this.mapOptions.center);
     
+    google.maps.event.trigger(this.map, "resize");
+    
     google.maps.event.addListener(
       this.map,
       "rightclick",
-      // console.log("WE MADE IT")
-      // this.rightClicked(event)
       function(event) {
         this.selectedPosition.latitude = event.latLng.lat();
         this.selectedPosition.longitude = event.latLng.lng();
         this.placeMarker();
+        //reach into the cookie jar of the global DOM
+        $('#selected_latitude').val(this.selectedPosition.latitude);
+        $('#selected_longitude').val(this.selectedPosition.longitude);
       }.bind(this)
-    );
+    );    
   },
   
   placeMarker: function () {
@@ -74,7 +77,8 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
   },
   
   mapify: function(){
-    this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
+    
+    this.map = window.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
   },
   
   // rightClicked: function (event) {

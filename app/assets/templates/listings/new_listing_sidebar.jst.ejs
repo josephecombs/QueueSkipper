@@ -1,16 +1,20 @@
 <h1 id="new_listing">New Listing</h1>
-<div id="new-listing-parameters">Fields required for a new listing:
-  <div class="form-group">
-    <label class="control-label" for="inputSuccess1">Latitude</label>
-    <input type="text" class="form-control" disabled="disabled" id="inputSuccess1">
+<div id="new-listing-parameters">
+  <div class="form-group" id="latitude">
+    <label class="control-label" for="selected_latitude">Latitude</label>
+    <input type="text" class="form-control" disabled="disabled" id="selected_latitude">
   </div>
-  <div class="form-group">
-    <label class="control-label" for="inputWarning1">Longitude</label>
-    <input type="text" class="form-control" disabled="disabled" id="inputWarning1">
+  <div class="form-group" id="longitude">
+    <label class="control-label" for="selected_longitude">Longitude</label>
+    <input type="text" class="form-control" disabled="disabled" id="selected_longitude">
   </div> 
-  <div class="form-group">
-    <label class="control-label" for="inputWarning1">Description</label>
-    <input type="text" class="form-control" id="inputWarning1">
+  <div class="form-group" id="description">
+    <label class="control-label" for="listing_description">Description</label>
+    <input type="text" class="form-control" id="listing_description">
+  </div>
+  <div class="form-group" id="price">
+    <label class="control-label" for="max_price">Price</label>
+    <input type="currency" class="form-control" id="max_price">
   </div>
   <div class="form-group input-append bootstrap-timepicker">
     <label class="control-label" for="inputWarning1">Your Estimated Arrival at Front of Line:</label>
