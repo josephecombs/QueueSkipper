@@ -7,8 +7,8 @@ class CreateListings < ActiveRecord::Migration
       t.integer :lister_id, null: false
       t.integer :booker_id
       t.boolean :active
-      t.float :latitude
-      t.float :longitude
+      t.float :latitude, null: false
+      t.float :longitude, null: false
       t.text :description, null: false
 
       t.timestamps

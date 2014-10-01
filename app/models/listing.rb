@@ -1,4 +1,6 @@
 class Listing < ActiveRecord::Base
+  validates :latitude, :longitude, :description, :max_price, :lister_id, presence: true
+  
   belongs_to(
     :lister,
     class_name: "User",

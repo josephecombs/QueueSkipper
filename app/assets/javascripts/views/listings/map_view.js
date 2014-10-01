@@ -35,6 +35,8 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     this.map.setZoom(10);
     
     this.map.setCenter(this.mapOptions.center);
+    
+    google.maps.event.trigger(this.map, "resize");
   },
   
   positionError: function(){
@@ -74,7 +76,7 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
   },
   
   mapify: function(){
-    this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
+    this.map = window.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
     
     google.maps.event.addListener(
       this.map,

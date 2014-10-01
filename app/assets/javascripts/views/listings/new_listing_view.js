@@ -50,13 +50,9 @@ QueueSkipper.Views.NewListingView = Backbone.View.extend({
     //if the options hash has string: true in it, render a string, else render the date object
     if (options) {
       if (options.string) {
-        console.log("hit stringify");
-        console.log(changeLater);
         return changeLater;
       }
     } else {
-      console.log("hit dateify");
-      console.log(newToday);
       return newToday;
     }
   }
