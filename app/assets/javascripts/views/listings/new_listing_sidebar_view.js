@@ -3,6 +3,7 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
 
   initialize: function () {
 
+
   },
 
   render: function () {
@@ -10,9 +11,14 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
       listing: this.model
     });
 
+
+
+
     this.$el.html(renderedContent);
 
     this.attachSubviews();
+
+    // $('#timepicker1').timepicker();
 
     return this;
   }

@@ -1,0 +1,6 @@
+TODO:
+
+1.) figure out why gmaps isnt completely reloading on backbone route calls
+2.) how to make timepickers
+3.) finish "submit new item"
+4.) perhaps color spots on the map the same as their corresponding buttons in the listings index?

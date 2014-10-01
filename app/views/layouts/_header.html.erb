@@ -7,13 +7,23 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">QueueSkipper</a>
+    <a href="/#/">
+      <img class="brand" src="/assets/ueueSkipper-logo.png" width="181" height="50" alt="QueueSkipperLogo">
+    </a>
   </div>
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
     <% if signed_in? %>
-      <li><%= button_to "List Your Spot!", "#/listings/new", method: :get, class: "btn btn-primary navbar-btn btn-listing" %></li>
+      <li><a class="btn btn-primary navbar-btn btn-listing"
+             style="
+               padding-top: 6px;
+               padding-right: 12px;
+               padding-bottom: 6px;
+               padding-left: 12px;
+               color: black;
+             "
+             href="/#/listings/new">List Your Spot!</a></li>
       <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn" %></li>
     <% else %>
       <li><%= link_to "Log in", new_session_url %></li>
