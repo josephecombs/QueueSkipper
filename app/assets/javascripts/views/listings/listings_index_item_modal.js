@@ -12,8 +12,6 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
   },
   
   keyDownHandler: function (event) {
-    console.log("Yuriy");
-    debugger;
     switch (event.which) {
       case 27: this.remove();
     }
