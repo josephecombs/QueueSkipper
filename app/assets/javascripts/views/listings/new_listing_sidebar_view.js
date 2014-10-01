@@ -7,7 +7,7 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
 
   render: function () {
     var renderedContent = this.template({
-      listings: this.collection
+      listing: this.model
     });
 
     this.$el.html(renderedContent);

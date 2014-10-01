@@ -17,6 +17,7 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
     
     //selected lat/long will go in here
     this.selectedPosition = { latitude: 0.00, longitude: 0.00 };
+  
   },
   
   template: JST["listings/new_listing_map"],
@@ -31,6 +32,34 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
     this.map.setZoom(10);
     
     this.map.setCenter(this.mapOptions.center);
+    
+    google.maps.event.addListener(
+      this.map,
+      "rightclick",
+      // console.log("WE MADE IT")
+      // this.rightClicked(event)
+      function(event) {
+        this.selectedPosition.latitude = event.latLng.lat();
+        this.selectedPosition.longitude = event.latLng.lng();
+        this.placeMarker();
+      }.bind(this)
+    );
+  },
+  
+  placeMarker: function () {
+    var myLatLng = new google.maps.LatLng(
+      this.selectedPosition.latitude,
+      this.selectedPosition.longitude
+    );
+    
+    if (this.marker) {
+      this.marker.setMap(null);
+    }
+
+    this.marker = new google.maps.Marker({
+      position: myLatLng,
+      map: this.map,
+    });    
   },
   
   positionError: function(){
@@ -46,20 +75,13 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
   
   mapify: function(){
     this.map = new google.maps.Map(this.$('#map-canvas')[0], this.mapOptions);
-    
-    //put in new listener here, the one I currently have commented out in initialize
-    // google.maps.event.addListener(
-    //   this.map,
-    //   'idle',
-    //   this.mapMoved.bind(this)
-    // );
   },
   
-  rightClicked: function (event) {
-    this.selectedPosition.latitude = event.latLng.lat();
-    this.selectedPosition.longitude = event.latLng.lng();
-    console.log(this.selectedPosition);
-  },
+  // rightClicked: function (event) {
+  //   this.selectedPosition.latitude = event.latLng.lat();
+  //   this.selectedPosition.longitude = event.latLng.lng();
+  //   console.log(this.selectedPosition);
+  // },
   
   mapMoved: function(){
     var bounds = this.map.getBounds();
