@@ -33,6 +33,7 @@ class Api::ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.lister_id = current_user.id
     if @listing.save
       render json: @listing
     else
@@ -100,6 +101,6 @@ class Api::ListingsController < ApplicationController
   
   private
   def listing_params
-    params.require(:listing).permit(:lister_id, :booker_id, :price, :line_id, :active, :latitude, :longitude, :description)
+    params.require(:listing).permit(:lister_id, :booker_id, :price, :line_id, :active, :latitude, :longitude, :description, :max_price)
   end
 end
