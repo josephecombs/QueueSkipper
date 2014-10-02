@@ -1,7 +1,7 @@
 <div id="pre-login" class="col-md-5"></div>
 <div id="pre-login" class="col-md-2">
   <h1>Sign In</h1>
-
+  <%= render "layouts/errors" %>
   <form action="/session" method="post">
     <input type="hidden" name="authenticity_token" value="<%= auth_token_input %>
     <label class="rails-label">Username<br>
@@ -17,7 +17,7 @@
     <input type="hidden" name="authenticity_token" value="<%= auth_token_input %>
     <input name="user[username]" type="hidden" class="form-control" value="guest">
     <input name="user[password]" type="hidden" class="form-control" value="password1">
-    <input type="submit" value="Sign in as Guest" class="btn btn-primary form-control">
+    <input type="submit" value="Sign in as Guest" class="btn btn-secondary form-control">
   </form>
 </div>
 
