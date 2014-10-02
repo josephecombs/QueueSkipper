@@ -14,6 +14,7 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'bootstrap-sass'
+gem 'lol_dba'
 
 group :development do
   gem 'pry-rails'
