@@ -1,19 +1,5 @@
 <h1 id="">Listings:</h1>
 
-<ul>
-  <% listings.each(function (listing) { %>
-    <li>
-      <a href="#/listings/<%= listing.id %>"><%= listing.escape("description") %></a>
-
-      <button class="delete" data-id="<%= listing.id %>">
-        Delete!
-      </button>
-
-      <a href="#/listings/<%= listing.id %>/edit">Edit</a>
-    </li>
-  <% }); %>
-</ul>
-
 <div id="listings-index-items">Available spots:
   
 </div>

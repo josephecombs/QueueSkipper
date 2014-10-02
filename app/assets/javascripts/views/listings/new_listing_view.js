@@ -17,7 +17,6 @@ QueueSkipper.Views.NewListingView = Backbone.View.extend({
     this.$('#datepicker1').datepicker({
       showOtherMonths: true,
       selectOtherMonths: true,
-      // defaultDate: new Date(2001,01,01)
       defaultDate: this.getCurDate()
     });
     this.$('#datepicker1').val(this.getCurDate({string: true}));

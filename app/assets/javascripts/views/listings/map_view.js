@@ -17,9 +17,10 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
       content: "HI MOM"
     });
     navigator.geolocation.getCurrentPosition(
-      this.positionSuccess.bind(this), 
+      this.positionSuccess.bind(this),
       this.positionError.bind(this)
     );
+
     //add all the listings that we have at initialize time
     this.collection.each(this.addListingPin.bind(this));
   },
@@ -72,6 +73,8 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
   render: function(){
     this.$el.html(this.template);
     this.mapify();
+    setTimeout(function(){google.maps.event.trigger(this.map, "resize")}.bind(this), 10)
+    
     return this;
   },
   

@@ -2,7 +2,7 @@
 <div id="new-listing-parameters">
   <div class="form-group" id="latitude">
     <label class="control-label" for="selected_latitude">Latitude</label>
-    <input type="text" class="form-control" disabled="disabled" id="selected_latitude">
+    <input type="text" class="form-control" disabled="disabled" id="selected_latitude" value="right click somewhere on the map">
   </div>
   <div class="form-group" id="longitude">
     <label class="control-label" for="selected_longitude">Longitude</label>
@@ -12,16 +12,19 @@
     <label class="control-label" for="listing_description">Description</label>
     <input type="text" class="form-control" id="listing_description">
   </div>
-  <div class="form-group" id="price">
+  <div class="form-group" id="max_price">
     <label class="control-label" for="max_price">Price</label>
     <input type="currency" class="form-control" id="max_price">
   </div>
-  <div class="form-group input-append bootstrap-timepicker">
+  <div class="form-group input-append bootstrap-timepicker" id="eta">
     <label class="control-label" for="inputWarning1">Your Estimated Arrival at Front of Line:</label>
     <p>Date: <input id="datepicker1" type="text" class="form-control"></p>
     <p>Time: <input id="timepicker1" type="text" class="form-control"></p>
     <span class="add-on"><i class="icon-time"></i></span>
   </div>
-  
+
     <button class="btn finalize-button new-listing-sidebar-submit">SUBMIT LISTING</button>
+    
+  <div class="new-listing-sidebar-errors">
+  </div>
 </div>
