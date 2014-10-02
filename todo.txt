@@ -5,3 +5,4 @@ TODO:
 2.) clean up backbone listing subviews
 3.) need more new user/splash flows
 4.) "About"/"Contact"
+5.) logo on heroku
