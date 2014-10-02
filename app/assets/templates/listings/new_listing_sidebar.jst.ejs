@@ -16,10 +16,16 @@
     <label class="control-label" for="max_price">Price</label>
     <input type="currency" class="form-control" id="max_price">
   </div>
-  <div class="form-group input-append bootstrap-timepicker" id="eta">
+  
+  <div class="form-group" id="eta">
     <label class="control-label" for="inputWarning1">Your Estimated Arrival at Front of Line:</label>
     <p>Date: <input id="datepicker1" type="text" class="form-control"></p>
-    <p>Time: <input id="timepicker1" type="text" class="form-control"></p>
+    <p>Time:   
+      <div class="form-group input-append bootstrap-timepicker" id="eta">
+        <input id="timepicker1" type="text" class="form-control">
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div>
+    </p>
     <span class="add-on"><i class="icon-time"></i></span>
   </div>
 
