@@ -1,14 +1,24 @@
-<div id="pre-login">
+<div id="pre-login" class="col-md-5"></div>
+<div id="pre-login" class="col-md-2">
   <h1>Sign In</h1>
 
   <form action="/session" method="post">
     <input type="hidden" name="authenticity_token" value="<%= auth_token_input %>
-    <label>Username<br>
-      <input name="user[username]" type="text"><br>
+    <label class="rails-label">Username<br>
+      <input name="user[username]" type="text" class="form-control">
     </label><br>
-    <label>Password<br>
-      <input name="user[password]" type="password"><br>
+    <label class="rails-label">Password<br>
+      <input name="user[password]" type="password" class="form-control"><br>
     </label><br>
-    <input type="submit" value="Submit" class="btn btn-primary"><br>
-  </form>  
+    <input type="submit" value="Sign in" class="btn btn-primary form-control"><br>
+  </form>
+  
+  <form action="/session" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= auth_token_input %>
+    <input name="user[username]" type="hidden" class="form-control" value="guest">
+    <input name="user[password]" type="hidden" class="form-control" value="password1">
+    <input type="submit" value="Sign in as Guest" class="btn btn-primary form-control">
+  </form>
 </div>
+
+<div id="pre-login" class="col-md-5"></div>
