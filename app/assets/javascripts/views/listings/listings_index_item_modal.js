@@ -24,8 +24,6 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
   
   book: function () {
     this.$('.listings-index-item-modal-book').hide();
-    
-    this.$('.modal-profile-pic').addClass('spinner');
 
     // this.model.set(booker_id: //something goes here I'll figure out what I have access to here
     
@@ -35,7 +33,15 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
       //check ordering of status and response
       success: function (model, response, status) {
         //successfully booked listing
-        this.$('.listings-index-item-modal').append('<div>THANK YOU FOR YOUR PATRONAGE</div>');
+        setTimeout(function() {
+          this.$('.modal-profile-pic').addClass('spinner');
+        }.bind(this),2000);
+        setTimeout(function() {
+          this.$('.loadspinner').removeClass('hidden')
+        }.bind(this),10);
+        setTimeout(function() {
+          this.$('.listings-index-item-modal').append('<div>THANK YOU FOR YOUR PATRONAGE</div>');
+        }.bind(this),2000);
       },
       error: function (model, response, status) {
         console.log(response);
