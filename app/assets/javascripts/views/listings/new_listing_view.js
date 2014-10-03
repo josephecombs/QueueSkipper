@@ -22,7 +22,7 @@ QueueSkipper.Views.NewListingView = Backbone.View.extend({
     this.$('#datepicker1').val(this.getCurDate({string: true}));
     this.$('#timepicker1').timepicker({
       showInputs: false,
-      minuteStep: 15
+      minuteStep: 5
     });
 
     return this;

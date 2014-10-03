@@ -25,27 +25,3 @@
 //= require_tree ./routers
 //= require_tree .
 
-// positionSuccess = function(position){
-//   window.mapCenter = new google.maps.LatLng(
-//     position.coords.latitude,
-//     position.coords.longitude
-//   );
-//
-//   // console.log('got position')
-//   //
-//   // this.map.setZoom(10);
-//   //
-//   // this.map.setCenter(this.mapOptions.center);
-//   //
-//   // google.maps.event.trigger(this.map, "resize");
-// }
-//
-// positionError = function(){
-//   alert('you must give position!');
-// }
-//
-// navigator.geolocation.getCurrentPosition(
-//   positionSuccess,
-//   positionError
-// );
-
