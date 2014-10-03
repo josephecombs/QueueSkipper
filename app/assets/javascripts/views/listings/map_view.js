@@ -56,8 +56,25 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     });
     
     google.maps.event.addListener(marker, 'click', function() {
-      window.$('button').css('background-color', 'transparent');
-      window.$('div.listings-index-item [data-id=' + listing.attributes.id + ']').css('background-color', 'lightPink');
+      //TODO redo this to not reach into the DOM
+      window.$('button').removeAttr('style');
+      
+      window.$('div.listings-index-item > .btn').css('border', '');
+      window.$('div.listings-index-item').css('border', '');
+      window.$('div.listings-index-item').css('background-color', '');
+      window.$('div#listings-index-items > div > [data-id=' + listing.attributes.id + ']').css({'border':'thin solid black'});
+      window.$('div#listings-index-items > div > [data-id=' + listing.attributes.id + ']').css({'background-color':'lightYellow'});
+      window.$('div.listings-index-item [data-id=' + listing.attributes.id + ']').css({'background-color': 'lightPink', 'border':'thin solid black'});
+      // window.$('div.listings-index-item [data-id=' + listing.attributes.id + '] ').hover(
+      //   function ()
+      //   {
+      //     window.$('div.listings-index-item [data-id=' + listing.attributes.id + ']').removeAttr('style');
+      //   },
+      //   function ()
+      //   {
+      //     window.$('div.listings-index-item [data-id=' + listing.attributes.id + ']').css({'background-color': 'lightPink', 'border':'thin solid black'});
+      //   }
+      // );
       if (this.infoWindow) {
         this.infoWindow.close();
       }

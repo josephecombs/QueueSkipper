@@ -12,5 +12,7 @@ QueueSkipper::Application.routes.draw do
       end
     end
   end
+  
+  resource :about, only: [:show]
 
 end

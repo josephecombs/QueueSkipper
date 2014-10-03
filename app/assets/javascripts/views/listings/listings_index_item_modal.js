@@ -35,12 +35,15 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
         //successfully booked listing
         setTimeout(function() {
           this.$('.modal-profile-pic').addClass('spinner');
-        }.bind(this),2000);
+        }.bind(this),4000);
         setTimeout(function() {
           this.$('.loadspinner').removeClass('hidden')
         }.bind(this),10);
         setTimeout(function() {
-          this.$('.listings-index-item-modal').append('<div>THANK YOU FOR YOUR PATRONAGE</div>');
+          this.$('.loadspinner').addClass('hidden')
+        }.bind(this),2000);
+        setTimeout(function() {
+          this.$('.listings-index-item-modal').append('<div>THANK YOU FOR YOUR PATRONAGE!</div>');
         }.bind(this),2000);
       },
       error: function (model, response, status) {
