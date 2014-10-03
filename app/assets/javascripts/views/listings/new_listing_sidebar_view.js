@@ -27,7 +27,7 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
     });
 
     //this will help errors later
-    if (this.$('#selected_latitude').val() === "right click somewhere on the map") {
+    if (this.$('#selected_latitude').val() === "right click somewhere on the map to populate this field") {
       this.model.set({latitude: ""});
     }
     //perform client-side validations on user input
@@ -109,11 +109,14 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
   setAllGreen: function () {
     this.$('.form-group').removeClass('has-error');
     this.$('.form-group').addClass('has-success');
+    this.$('.form-group > .form-control').css({'border-width':'1px'});
   },
   
   setRed: function (selector) {
     this.$('.form-group#' + selector).removeClass('has-success');
     this.$('.form-group#' + selector).addClass('has-error');
+    this.$('.form-group#' + selector + '> .form-control').css({'border-width':'3px'});
+    this.$('.form-group#' + selector).css('border-width: 3px');
   },
   
   parseErrorMessage: function (message) {
