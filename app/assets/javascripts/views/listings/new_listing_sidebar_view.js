@@ -36,6 +36,8 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
       success: function (model, response, status) {
         //successfully booked listing
         this.setAllGreen();
+
+        this.$(".new-listing-sidebar-errors").empty();
         this.$('.finalize-button').addClass('spinner');
       }.bind(this),
       error: function (model, response, status) {
