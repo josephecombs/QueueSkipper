@@ -3,11 +3,14 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
 
   initialize: function () {
 
-
   },
   
   events: {
     'click .new-listing-sidebar-submit': 'submit'
+  },
+  
+  submit: function () {
+    setTimeout(function() { alert('Hello') }, 2000);
   },
   
   submit: function () {
@@ -22,13 +25,13 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
       eta: this.$('#datepicker1').val() + " " + this.$('#timepicker1').val(),
       active: true
     });
-    
+
     //this will help errors later
     if (this.$('#selected_latitude').val() === "right click somewhere on the map") {
       this.model.set({latitude: ""});
     }
     //perform client-side validations on user input
-    
+
     this.model.save({}, {
       url: 'api/listings/',
       type: 'post',
@@ -36,19 +39,32 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
       success: function (model, response, status) {
         //successfully booked listing
         this.setAllGreen();
-
         this.$(".new-listing-sidebar-errors").empty();
-        this.$('.finalize-button').addClass('spinner');
-      }.bind(this),
+        //we already know this has succeeded, this makes user value our service more.
+        this.$('.finalize-button').addClass('disabled');
+        setTimeout(function() {
+          this.$('.loadspinner').removeClass('hidden')
+        }.bind(this),10);
+        setTimeout(function() {
+          this.$('.listing-success').removeClass('hidden')      
+        }.bind(this),2000);
+        setTimeout(function() {
+          //this is the wrong way to do it, fix later
+          window.location = "/";
+          // QueueSkipper.Routers.router.navigate("/");
+        }.bind(this),4200);
+      }.bind(this),  
+        // setTimeout(function() { alert('hello') }.bind(this), 4600);
+
       error: function (model, response, status) {
 
         this.decorateErrors(response);
         //display the response object
       }.bind(this)
     });
-    
 
-    this.$('.new-listing-sidebar-submit').removeClass("disabled")
+
+    this.$('.new-listing-sidebar-submit').removeClass("disabled");
   },
 
   render: function () {
@@ -79,8 +95,6 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
 
       this.setRed(selector);
     }
-    
-    //append errors to the errors div
   },
   
   //this hash maps the first word of an error message to a css selector/rails column
@@ -108,7 +122,7 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
   },
   
   dontJudgeMe: function (string) {
-    //yes... I understand this ought to be a regEx
+    //please
     return string.replace("\"","").replace("[","").replace("]","").replace("\"","");
   }
   

@@ -144,84 +144,133 @@
 }
 
 .help-tip{
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    text-align: center;
-    background-color: #BCDBEA;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-    line-height: 26px;
-    cursor: default;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  text-align: center;
+  background-color: #BCDBEA;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 26px;
+  cursor: default;
 }
 
 .help-tip:before{
-    content:'?';
-    font-weight: bold;
-    color:#fff;
+  content:'?';
+  font-weight: bold;
+  color:#fff;
 }
 
 .help-tip:hover p{
-    display:block;
-    transform-origin: 100% 0%;
+  display:block;
+  transform-origin: 100% 0%;
 
-    -webkit-animation: fadeIn 0.3s ease-in-out;
-    animation: fadeIn 0.3s ease-in-out;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
 
 }
 
 .help-tip p{	/* The tooltip */
-    display: none;
-    text-align: left;
-    background-color: #1E2021;
-    padding: 20px;
-    width: 300px;
-    position: absolute;
-    border-radius: 3px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    right: -4px;
-    color: #FFF;
-    font-size: 13px;
-    line-height: 1.4;
+  display: none;
+  text-align: left;
+  background-color: #1E2021;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #FFF;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .help-tip p:before{ /* The pointer of the tooltip */
-    position: absolute;
-    content: '';
-    width:0;
-    height: 0;
-    border:6px solid transparent;
-    border-bottom-color:#1E2021;
-    right:10px;
-    top:-12px;
+  position: absolute;
+  content: '';
+  width:0;
+  height: 0;
+  border:6px solid transparent;
+  border-bottom-color:#1E2021;
+  right:10px;
+  top:-12px;
 }
 
 .help-tip p:after{ /* Prevents the tooltip from being hidden */
-    width:100%;
-    height:40px;
-    content:'';
-    position: absolute;
-    top:-40px;
-    left:0;
+  width:100%;
+  height:40px;
+  content:'';
+  position: absolute;
+  top:-40px;
+  left:0;
 }
 
 /* CSS animation */
 
 @-webkit-keyframes fadeIn {
-    0% { 
-        opacity:0; 
-        transform: scale(0.6);
-    }
+  0% { 
+    opacity:0; 
+    transform: scale(0.6);
+  }
 
-    100% {
-        opacity:100%;
-        transform: scale(1);
-    }
+  100% {
+    opacity:100%;
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeIn {
-    0% { opacity:0; }
-    100% { opacity:100%; }
+  0% { opacity:0; }
+  100% { opacity:100%; }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: black;
+}
+
+div.listing-success {
+  color: green;
+  font-size: 300%;
+}
+
+div.loadspinner {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+    
+div.loadspinner div {
+  width: 12%;
+  height: 26%;
+  background: #000;
+  position: absolute;
+  left: 44.5%;
+  top: 37%;
+  opacity: 0;
+  -webkit-animation: fade 1s linear infinite;
+  -webkit-border-radius: 50px;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+    
+div.loadspinner div.bar1 {-webkit-transform:rotate(0deg) translate(0, -142%); -webkit-animation-delay: 0s;}    
+div.loadspinner div.bar2 {-webkit-transform:rotate(30deg) translate(0, -142%); -webkit-animation-delay: -0.9167s;}
+div.loadspinner div.bar3 {-webkit-transform:rotate(60deg) translate(0, -142%); -webkit-animation-delay: -0.833s;}
+div.loadspinner div.bar4 {-webkit-transform:rotate(90deg) translate(0, -142%); -webkit-animation-delay: -0.75s;}
+div.loadspinner div.bar5 {-webkit-transform:rotate(120deg) translate(0, -142%); -webkit-animation-delay: -0.667s;}
+div.loadspinner div.bar6 {-webkit-transform:rotate(150deg) translate(0, -142%); -webkit-animation-delay: -0.5833s;}
+div.loadspinner div.bar7 {-webkit-transform:rotate(180deg) translate(0, -142%); -webkit-animation-delay: -0.5s;}
+div.loadspinner div.bar8 {-webkit-transform:rotate(210deg) translate(0, -142%); -webkit-animation-delay: -0.41667s;}
+div.loadspinner div.bar9 {-webkit-transform:rotate(240deg) translate(0, -142%); -webkit-animation-delay: -0.333s;}
+div.loadspinner div.bar10 {-webkit-transform:rotate(270deg) translate(0, -142%); -webkit-animation-delay: -0.25s;}
+div.loadspinner div.bar11 {-webkit-transform:rotate(300deg) translate(0, -142%); -webkit-animation-delay: -0.1667s;}
+div.loadspinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%); -webkit-animation-delay: -0.0833s;}
+
+@-webkit-keyframes fade {
+ from {opacity: 1;}
+ to {opacity: 0.25;}
 }

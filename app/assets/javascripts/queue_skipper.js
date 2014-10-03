@@ -16,4 +16,4 @@ window.QueueSkipper = {
   
 $(document).ready(function(){
   QueueSkipper.initialize();
- });
+});
