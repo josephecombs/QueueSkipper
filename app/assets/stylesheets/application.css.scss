@@ -48,7 +48,13 @@
   overflow: hidden;
   -webkit-transform: translateZ(0px);
   z-index: 1;
-};
+}
+
+//airBnB copying piece
+.row-condensed {
+  margin-left: -6.25px;
+  margin-right: -6.25px;
+}
 
 //#map-canvas {
 //  position: relative;
