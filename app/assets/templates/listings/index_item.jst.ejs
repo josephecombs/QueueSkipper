@@ -3,5 +3,8 @@
   data-id=<%= listing.attributes.id  %>
     >     
   <button data-id=<%= listing.attributes.id  %> class="btn btn-default booking-button float">BOOK NOW</button>
-  <%= listing.attributes.description %>
+  <% var num = listing.attributes.max_price %>
+  <% var aaa = parseInt(num) %>
+  <% var n = aaa.toFixed(2) %>
+  $<%= n %>; <%= listing.attributes.description %>
 </div>
