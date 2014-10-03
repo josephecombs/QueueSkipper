@@ -57,10 +57,11 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     
     google.maps.event.addListener(marker, 'click', function() {
       window.$('button').css('background-color', 'transparent');
-      window.$('li.listings-index-item [data-id=' + listing.attributes.id + ']').css('background-color', 'lightPink');
+      window.$('div.listings-index-item [data-id=' + listing.attributes.id + ']').css('background-color', 'lightPink');
       if (this.infoWindow) {
         this.infoWindow.close();
       }
+      this.infoWindow.content = "$" + listing.attributes.max_price;
       this.infoWindow.open(this.map, marker);
     }.bind(this));
   },

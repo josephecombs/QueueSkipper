@@ -35,7 +35,7 @@ QueueSkipper.Views.ListingsIndexItemModal = Backbone.CompositeView.extend({
       //check ordering of status and response
       success: function (model, response, status) {
         //successfully booked listing
-        this.$('.listings-index-item-modal').append('<div>THESE ARE THE DAYS WEVE BEEN WAITING FOR</div>');
+        this.$('.listings-index-item-modal').append('<div>THANK YOU FOR YOUR PATRONAGE</div>');
       },
       error: function (model, response, status) {
         console.log(response);
