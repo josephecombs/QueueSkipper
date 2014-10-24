@@ -11,7 +11,7 @@ User.create(username: "joe", password: "joejoe", img_url: "http://archive.wizard
 User.create(username: "selma", password: "Springfield", img_url: "http://img1.wikia.nocookie.net/__cb20140826210408/simpsons/images/b/ba/Selma_Bouvier.png", phone_number: "5559765421", email_address: "sbouvier@springfielddmv.gov")
 User.create(username: "patty", password: "Bouvier", img_url: "http://upload.wikimedia.org/wikipedia/en/f/f8/Patty_Bouvier.png", phone_number: "5552345123", email_address:"pbouvier@springfielddmv.gov")
 User.create(username: "matt", password: "leick1", img_url: "http://m.c.lnkd.licdn.com/mpr/pub/image-es1d6PGhM_mNG_CrxGEFpf-zV2xwItEPoy1D0hshVmKzQgcOes1DRTfhVdwSlW3-cqnP/matthew-leick.jpg", phone_number: "5552319875", email_address: "mleick@mleick.com")
-User.create(username: "robot", password: "password1", img_url: "http://slurmed.com/3d/show/007_bender-head.jpg", phone_number: "5551234345", email_address: "asdf@wert.net")
+User.create(username: "robot", password: "password1", img_url: "http://img2.wikia.nocookie.net/__cb20131021115803/futurama2/de/images/5/51/Bender.jpg", phone_number: "5551234345", email_address: "asdf@wert.net")
 
 
 
