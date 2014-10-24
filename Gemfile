@@ -15,6 +15,7 @@ gem 'backbone-on-rails'
 gem 'rails_12factor'
 gem 'bootstrap-sass'
 gem 'lol_dba'
+gem 'utf8-cleaner'
 
 group :development do
   gem 'pry-rails'

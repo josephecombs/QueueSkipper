@@ -5,7 +5,7 @@
   <a class="listings-index-item-modal-dismiss glyphicon glyphicon-remove" href="javascript:void(0)"></a>
 
   <h4><%= listingIndexItem.escape('description') %></h4>
-    <h6 class="confirm-message">$<%= listingIndexItem.escape('max_price') %> will be deducted from your account.</h6>
+    <h6 class="confirm-message">$<%= Math.floor(listingIndexItem.escape('max_price')) %>.00 will be deducted from your account.</h6>
     
     <img class="modal-profile-pic" src=<%= listingIndexItem.attributes.lister.img_url %>>
     

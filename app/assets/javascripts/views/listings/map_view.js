@@ -78,7 +78,8 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
       if (this.infoWindow) {
         this.infoWindow.close();
       }
-      this.infoWindow.content = "$" + listing.attributes.max_price;
+	  console.log(listing.attributes.max_price);
+      this.infoWindow.content = "$" + Math.floor(listing.attributes.max_price) + ".00";
       this.infoWindow.open(this.map, marker);
     }.bind(this));
   },
