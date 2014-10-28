@@ -125,7 +125,7 @@ QueueSkipper.Views.NewListingSidebarView = Backbone.CompositeView.extend({
   },
   
   dontJudgeMe: function (string) {
-    //please
+    //please 
     return string.replace("\"","").replace("[","").replace("]","").replace("\"","");
   }
   
