@@ -7,7 +7,6 @@ QueueSkipper.Collections.Listings = Backbone.Collection.extend({
       listings = this;
     if(!listing) {
       listing = new QueueSkipper.Models.Listing({ id: id });
-      debugger;
       listing.fetch({
         success: function () {
           listings.add(listing);
@@ -19,7 +18,6 @@ QueueSkipper.Collections.Listings = Backbone.Collection.extend({
       listing.fetch();
       
     }
-    debugger;
     return listing;
   }
   

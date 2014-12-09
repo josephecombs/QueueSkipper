@@ -111,8 +111,9 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
 
     var bounds = this.map.getBounds();
 
-    this.mapBounds.topLeft = [bounds.Ea.j, bounds.va.j];
-    this.mapBounds.bottomRight = [bounds.Ea.k, bounds.va.k];
+	//TODO: this is a serious problem.  bounds.Fa.j and k seem to be changing every so often... check the pins once in a while.  Figure out a diff way to consume this API.
+    this.mapBounds.topLeft = [bounds.Fa.j, bounds.wa.j];
+    this.mapBounds.bottomRight = [bounds.Fa.k, bounds.wa.k];
     var opts = { 
       data:{
         bounds: { 
