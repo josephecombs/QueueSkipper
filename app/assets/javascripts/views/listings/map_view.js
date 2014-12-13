@@ -111,10 +111,9 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
 
     var bounds = this.map.getBounds();
 
-	//TODO: this is a serious problem.  bounds.Fa.j and k seem to be changing every so often... check the pins once in a while.  Figure out a diff way to consume this API.
-	console.log(bounds);
-    this.mapBounds.topLeft = [bounds.Ea.j, bounds.wa.j];
-    this.mapBounds.bottomRight = [bounds.Ea.k, bounds.wa.k];
+	//right now, this is necessary because the values of the keys returned by .getBounds() seem to be changing at random.  Therefore, I have to pick out the first key with Object.keys(bounds)[0] and the second key with Object.keys(bounds)[1] 
+	this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
+    this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
     var opts = { 
       data:{
         bounds: { 

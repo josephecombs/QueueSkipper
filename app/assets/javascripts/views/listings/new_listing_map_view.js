@@ -90,8 +90,10 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
   
   mapMoved: function(){
     var bounds = this.map.getBounds();
-    this.mapBounds.topLeft = [bounds.Ea.j, bounds.wa.j];
-    this.mapBounds.bottomRight = [bounds.Ea.k, bounds.wa.k];
+	
+	//again, to solve the .getBounds() return values changing, access first key with Object.keys(bounds)[0] and second key with Object.keys(bounds)[1]
+	this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
+    this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
     var opts = { 
       data:{
         bounds: { 
