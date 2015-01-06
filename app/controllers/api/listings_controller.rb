@@ -63,7 +63,6 @@ class Api::ListingsController < ApplicationController
       @listing.errors.add(:listing, "is no longer available")
       render json: @listing.errors.full_messages, status: 422
     end
-  # end
   end
 
   def destroy
