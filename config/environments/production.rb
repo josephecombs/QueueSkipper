@@ -79,4 +79,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # for action mailer transactional email in prod, configure these values later: http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
+  
+  config.action_mailer.default_url_options = {:host => 'queueskipper.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "127.0.0.1",
+    :port    => 25,
+    :domain  => 'queueskipper.com'
+  }
 end
