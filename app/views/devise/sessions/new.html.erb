@@ -23,7 +23,14 @@
 	  <div class="actions">
 	    <%= f.submit "Log in" %>
 	  </div>
+	  
 	<% end %>
+	
+  <form action="/users/sign_in" method="post">
+    <input name="user[email]" type="hidden" class="form-control" value="asdf@ewrt.net">
+    <input name="user[password]" type="hidden" class="form-control" value="password1">
+    <input type="submit" value="Log in as Guest" class="btn btn-secondary form-control">
+  </form>
 
 	<%= render "devise/shared/links" %>
 </div>
