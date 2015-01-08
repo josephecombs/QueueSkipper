@@ -235,7 +235,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   temp_arr = []
   i = 0
-  File.readlines('/omniauth_keys/keys.txt').each do |line, idx|
+  File.readlines('omniauth_keys/keys.txt').each do |line, idx|
     temp_arr[i] = line.gsub!("\n","")
     i += 1
   end
