@@ -17,6 +17,7 @@ gem 'bootstrap-sass'
 gem 'lol_dba'
 gem 'utf8-cleaner'
 gem 'devise'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'pry-rails'

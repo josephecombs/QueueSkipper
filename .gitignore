@@ -17,3 +17,4 @@
 
 # Ignore author replace script
 /git_author_replace.sh
+/omniauth_keys
