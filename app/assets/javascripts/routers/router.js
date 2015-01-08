@@ -7,7 +7,9 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
     "": "index",
     "listings/new": "new",
     "listings/:id": "show",
-    "listings/:id/edit": "edit"
+    "listings/:id/edit": "edit",
+  //I AM A FUCKING GENIUS.  FACEBOOK SUCKS
+	"_=_": "index"
   },
 
   // edit: function (id) {

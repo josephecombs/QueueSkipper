@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(password: "password1", img_url: "http://david.heinemeierhansson.com/images/me.jpg", phone_number: "5551234345", email: "asdf@ewrt.net")
-User.create(password: "joejoejoe", img_url: "http://archive.wizards.com/mtg/images/daily/events/gpauc08/T8_combs.jpg", phone_number: "5853191067", email: "joseph@josephecombs.com")
-User.create(password: "Springfield", img_url: "http://img1.wikia.nocookie.net/__cb20140826210408/simpsons/images/b/ba/Selma_Bouvier.png", phone_number: "5559765421", email: "sbouvier@springfielddmv.gov")
-User.create(password: "Bouvier1", img_url: "http://upload.wikimedia.org/wikipedia/en/f/f8/Patty_Bouvier.png", phone_number: "5552345123", email:"pbouvier@springfielddmv.gov")
-User.create(password: "leick111", img_url: "http://m.c.lnkd.licdn.com/mpr/pub/image-es1d6PGhM_mNG_CrxGEFpf-zV2xwItEPoy1D0hshVmKzQgcOes1DRTfhVdwSlW3-cqnP/matthew-leick.jpg", phone_number: "5552319875", email: "mleick@mleick.com")
-User.create(password: "password1", img_url: "http://img2.wikia.nocookie.net/__cb20131021115803/futurama2/de/images/5/51/Bender.jpg", phone_number: "5551234345", email: "asdf@qwer.net")
+User.create(password: "password1", img_url: "http://david.heinemeierhansson.com/images/me.jpg", phone_number: "5551234345", email: "asdf@ewrt.net", confirmed_at: Faker::Time.forward(1, :morning))
+User.create(password: "joejoejoe", img_url: "http://archive.wizards.com/mtg/images/daily/events/gpauc08/T8_combs.jpg", phone_number: "5853191067", email: "joseph@josephecombs.com", confirmed_at: Faker::Time.forward(1, :morning))
+User.create(password: "Springfield", img_url: "http://img1.wikia.nocookie.net/__cb20140826210408/simpsons/images/b/ba/Selma_Bouvier.png", phone_number: "5559765421", email: "sbouvier@springfielddmv.gov", confirmed_at: Faker::Time.forward(1, :morning))
+User.create(password: "Bouvier1", img_url: "http://upload.wikimedia.org/wikipedia/en/f/f8/Patty_Bouvier.png", phone_number: "5552345123", email:"pbouvier@springfielddmv.gov", confirmed_at: Faker::Time.forward(1, :morning))
+User.create(password: "leick111", img_url: "http://m.c.lnkd.licdn.com/mpr/pub/image-es1d6PGhM_mNG_CrxGEFpf-zV2xwItEPoy1D0hshVmKzQgcOes1DRTfhVdwSlW3-cqnP/matthew-leick.jpg", phone_number: "5552319875", email: "mleick@mleick.com", confirmed_at: Faker::Time.forward(1, :morning))
+User.create(password: "password1", img_url: "http://img2.wikia.nocookie.net/__cb20131021115803/futurama2/de/images/5/51/Bender.jpg", phone_number: "5551234345", email: "asdf@qwer.net", confirmed_at: Faker::Time.forward(1, :morning))
 
 
 Listing.create(eta: '14:05:06 PST', est_duration: '00:30:00', max_price: 20.00, lister_id: 2, description: "Making a little money during App Academy's lunch, at a Generic SF Food Truck", latitude: 37.780011, longitude: -122.259845, active: true)

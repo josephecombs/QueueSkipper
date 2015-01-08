@@ -236,13 +236,14 @@ Devise.setup do |config|
   temp_arr = []
   i = 0
   File.readlines('omniauth_keys/keys.txt').each do |line, idx|
-    temp_arr[i] = line.gsub!("\n","")
+    temp_arr[i] = line.gsub("\n","")
     i += 1
   end
   
   master = {facebook: {}} #fill this up with other providers later
   master[:facebook][:app_id] = temp_arr[0]
   master[:facebook][:app_secret] = temp_arr[1]
+  
   config.omniauth :facebook, master[:facebook][:app_id], master[:facebook][:app_secret]
 
   # ==> Warden configuration

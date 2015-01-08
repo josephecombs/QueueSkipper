@@ -18,6 +18,7 @@ gem 'lol_dba'
 gem 'utf8-cleaner'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'faker'
 
 group :development do
   gem 'pry-rails'
