@@ -82,7 +82,7 @@ Rails.application.configure do
   
   # for action mailer transactional email in prod, configure these values later: http://stackoverflow.com/questions/8186584/how-do-i-set-up-email-confirmation-with-devise
   
-  config.action_mailer.default_url_options = {:host => 'queueskipper.com'}
+  config.action_mailer.default_url_options = {:host => ENV['SENDGRID_DOMAIN']}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address        => "smtp.sendgrid.net",
