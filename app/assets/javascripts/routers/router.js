@@ -5,11 +5,12 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
+	  //I AM A FUCKING GENIUS.  FACEBOOK SUCKS.  TODO: this is actually an open issue, I would like to not have to resort to this style of aliasing.  I really should change the facebook redirect_uri to some more correct value.
+	"_=_": "index",
     "listings/new": "new",
     "listings/:id": "show",
-    "listings/:id/edit": "edit",
-  //I AM A FUCKING GENIUS.  FACEBOOK SUCKS
-	"_=_": "index"
+    "listings/:id/edit": "edit"
+
   },
 
   // edit: function (id) {
@@ -23,6 +24,11 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
   // },
 
   index: function () {
+	
+	if (window.location.hash === "#_=_") {
+		window.location.hash = "#";
+	}
+	
     var searchView = new QueueSkipper.Views.SearchView({
       collection: QueueSkipper.Collections.listings
     });
