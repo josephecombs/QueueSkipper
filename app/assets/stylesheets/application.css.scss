@@ -34,6 +34,17 @@
 .btn-secondary:hover {
   background-color: #B26B00;
   color: white;
+  border-style: solid;
+}
+
+.btn-primary {
+  transition: all .2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: #337ab7;
+  border-style: solid;
 }
 
 #ui-datepicker-div {
@@ -286,11 +297,32 @@ div.loadspinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%);
 .column-left{ 
 	float: left; 
 	width: 33%; 
-	border-right: 1px dashed #333;
+	display: inline-block;
+	padding: 30px;
+	margin-top: 127px;
 }
-.column-right{ float: right; width: 33%; }
-.column-center{ display: inline-block; width: 33%; }
+
+.column-right{ 
+	float: right; 
+	width: 33%; 
+	padding: 30px;
+	margin-top: 127px;
+}
+
+.column-center{ 
+	display: inline-block; 
+	width: 33%; 
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	padding: 30px;
+}
 
 .login-header {
 	text-align:center;
+}
+
+.column-login-separator {
+	float:right;
+	text-align:center;
+	width: 5%;
 }

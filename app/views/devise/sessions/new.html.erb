@@ -2,13 +2,13 @@
 	<h1 class="login-header">Log in</h1>
 	
 	<div class="container">
-	   <div class="column-center">
+	    <div class="column-center">
 	   	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	   	  <div class="field">
 	   	    <%= f.label :email %><br />
 	   	    <%= f.email_field :email, autofocus: true %>
 	   	  </div>
-
+		  
 	   	  <div class="field">
 	   	    <%= f.label :password %><br />
 	   	    <%= f.password_field :password, autocomplete: "off" %>
@@ -25,7 +25,7 @@
 	  
 	   	<% end %>
 	   </div>
-	   
+		
 	    <div class="column-left">
 		    <form action="/users/sign_in" method="post">
 		        <input name="user[email]" type="hidden" class="form-control" value="asdf@ewrt.net">
@@ -33,8 +33,11 @@
 		        <input type="submit" value="Log in as Guest" class="btn btn-secondary form-control">
 		    </form>
 	    </div>
-	    <div class="column-right">
-            <%= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
+	    
+		<div class="column-right">
+			<%= button_to "Log in with Facebook", user_omniauth_authorize_path(:facebook), :class => "btn btn-primary form-control", :method => :get  %>
+			<%#= button_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
+            <%#= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
 	    </div>
 	</div>
 	
