@@ -282,3 +282,15 @@ div.loadspinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%);
  from {opacity: 1;}
  to {opacity: 0.25;}
 }
+
+.column-left{ 
+	float: left; 
+	width: 33%; 
+	border-right: 1px dashed #333;
+}
+.column-right{ float: right; width: 33%; }
+.column-center{ display: inline-block; width: 33%; }
+
+.login-header {
+	text-align:center;
+}

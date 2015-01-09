@@ -1,39 +1,47 @@
-<div id="pre-login" class="col-md-4"></div>
-<div id="pre-login" class="col-md-4">
-	<h1>Log in</h1>
-
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	  <div class="field">
-	    <%= f.label :email %><br />
-	    <%= f.email_field :email, autofocus: true %>
-	  </div>
-
-	  <div class="field">
-	    <%= f.label :password %><br />
-	    <%= f.password_field :password, autocomplete: "off" %>
-	  </div>
-
-	  <% if devise_mapping.rememberable? -%>
-	    <div class="field">
-	      <%= f.check_box :remember_me %>
-	      <%= f.label :remember_me %>
-	    </div>
-	  <% end -%>
-
-	  <div class="actions">
-	    <%= f.submit "Log in" %>
-	  </div>
-	  
-	<% end %>
+<div id="pre-login">
+	<h1 class="login-header">Log in</h1>
 	
-  <form action="/users/sign_in" method="post">
-    <input name="user[email]" type="hidden" class="form-control" value="asdf@ewrt.net">
-    <input name="user[password]" type="hidden" class="form-control" value="password1">
-    <input type="submit" value="Log in as Guest" class="btn btn-secondary form-control">
-  </form>
+	<div class="container">
+	   <div class="column-center">
+	   	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	   	  <div class="field">
+	   	    <%= f.label :email %><br />
+	   	    <%= f.email_field :email, autofocus: true %>
+	   	  </div>
+
+	   	  <div class="field">
+	   	    <%= f.label :password %><br />
+	   	    <%= f.password_field :password, autocomplete: "off" %>
+	   	  </div>
+
+	   	  <% if devise_mapping.rememberable? -%>
+	   	    <div class="field">
+	   	      <%= f.check_box :remember_me %>
+	   	      <%= f.label :remember_me %>
+	   	    </div>
+	   	  <% end -%>
+
+	   	<input type="submit" value="Log in" class="btn btn-secondary form-control">
+	  
+	   	<% end %>
+	   </div>
+	   
+	    <div class="column-left">
+		    <form action="/users/sign_in" method="post">
+		        <input name="user[email]" type="hidden" class="form-control" value="asdf@ewrt.net">
+		        <input name="user[password]" type="hidden" class="form-control" value="password1">
+		        <input type="submit" value="Log in as Guest" class="btn btn-secondary form-control">
+		    </form>
+	    </div>
+	    <div class="column-right">
+            <%= link_to "Log in with Facebook", user_omniauth_authorize_path(:facebook) %>
+	    </div>
+	</div>
+	
+	
+
   
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
 
 	<%= render "devise/shared/links" %>
 </div>
-<div id="pre-login" class="col-md-4"></div>
