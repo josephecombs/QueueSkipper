@@ -25,9 +25,9 @@ QueueSkipper.Routers.Router = Backbone.Router.extend({
 
   index: function () {
 	
-	// if (window.location.hash === "#_=_") {
-	// 	window.location.hash = "#";
-	// }
+	if (window.location.hash === "#_=_") {
+		window.location.hash = "#";
+	}
 	
     var searchView = new QueueSkipper.Views.SearchView({
       collection: QueueSkipper.Collections.listings

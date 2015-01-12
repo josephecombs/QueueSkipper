@@ -14,12 +14,23 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     //map can only have one InfoWindow
     this.infoWindow = new google.maps.InfoWindow({
       // content: contentString
-      content: "HI MOM"
     });
+	
+	console.log("does the browser even ask for user's position?");
+	
     navigator.geolocation.getCurrentPosition(
       this.positionSuccess.bind(this),
       this.positionError.bind(this)
     );
+	
+	  //     navigator.geolocation.getCurrentPosition(
+	  // function() {
+	  //     console.log("success");
+	  // },
+	  //       function() {
+	  //       	  console.log("failure");
+	  //       }
+	  //     );
 
     //add all the listings that we have at initialize time
     this.collection.each(this.addListingPin.bind(this));
@@ -34,6 +45,7 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     );
 
     this.map.setZoom(10);
+	console.log("successfully set the zoom of the map to 10");
     
     this.map.setCenter(this.mapOptions.center);
     
@@ -41,7 +53,7 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
   },
   
   positionError: function(){
-    alert('you must give position!');
+    console.log("user did not give their geolocation for some reason");
   },
   
   addListingPin: function(listing){
@@ -112,19 +124,26 @@ QueueSkipper.Views.MapView = Backbone.View.extend({
     var bounds = this.map.getBounds();
 
 	//right now, this is necessary because the values of the keys returned by .getBounds() seem to be changing at random.  Therefore, I have to pick out the first key with Object.keys(bounds)[0] and the second key with Object.keys(bounds)[1] 
-	this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
-    this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
+	// this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
+	//     this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
+	//fixing this bs again:
+	var tl_lat = parseFloat(this.map.getBounds().toUrlValue().split(",")[2]);
+	var tl_long = parseFloat(this.map.getBounds().toUrlValue().split(",")[1]);
+	var br_lat = parseFloat(this.map.getBounds().toUrlValue().split(",")[0]);
+	var br_long = parseFloat(this.map.getBounds().toUrlValue().split(",")[3]);
+	
     var opts = { 
       data:{
         bounds: { 
-          tl_lat: this.mapBounds.topLeft[0], 
-          tl_long: this.mapBounds.topLeft[1], 
-          br_lat: this.mapBounds.bottomRight[0], 
-          br_long: this.mapBounds.bottomRight[1] 
+          tl_lat: tl_lat,
+          tl_long: tl_long,
+          br_lat: br_lat,
+          br_long: br_long
         }
       }
     };
-    
+	//     console.log("trying to fetch listings collection with these options:")
+	// console.log(opts)
     this.collection.fetch(opts);
   }
 })

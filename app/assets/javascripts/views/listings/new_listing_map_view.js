@@ -92,18 +92,27 @@ QueueSkipper.Views.NewListingMapView = Backbone.View.extend({
     var bounds = this.map.getBounds();
 	
 	//again, to solve the .getBounds() return values changing, access first key with Object.keys(bounds)[0] and second key with Object.keys(bounds)[1]
-	this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
-    this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
+	// this.mapBounds.topLeft = [bounds[Object.keys(bounds)[0]].j, bounds[Object.keys(bounds)[1]].j];
+	//     this.mapBounds.bottomRight = [bounds[Object.keys(bounds)[1]].k, bounds[Object.keys(bounds)[1]].k];
+	
+	//fixing this bs again:
+	var tl_lat = parseFloat(this.map.getBounds().toUrlValue().split(",")[2]);
+	var tl_long = parseFloat(this.map.getBounds().toUrlValue().split(",")[1]);
+	var br_lat = parseFloat(this.map.getBounds().toUrlValue().split(",")[0]);
+	var br_long = parseFloat(this.map.getBounds().toUrlValue().split(",")[3]);
+	
     var opts = { 
       data:{
         bounds: { 
-          tl_lat: this.mapBounds.topLeft[0], 
-          tl_long: this.mapBounds.topLeft[1], 
-          br_lat: this.mapBounds.bottomRight[0], 
-          br_long: this.mapBounds.bottomRight[1] 
+          tl_lat: tl_lat,
+          tl_long: tl_long,
+          br_lat: br_lat,
+          br_long: br_long
         }
       }
     };
+	
+	
     
     ////deprecated, we don't have a collection in the new map views
     // this.collection.fetch(opts);

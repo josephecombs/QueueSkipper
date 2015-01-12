@@ -1,0 +1,51 @@
+works (A):
+
+http://localhost:3000/api/listings?bounds%5Btl_lat%5D=180&bounds%5Btl_long%5D=-180&bounds%5Bbr_lat%5D=-180&bounds%5Bbr_long%5D=180
+
+does not work (B):
+
+http://localhost:3000/api/listings?bounds%5Btl_lat%5D=89.63342561818912&bounds%5Btl_long%5D=-180&bounds%5Bbr_lat%5D=180&bounds%5Bbr_long%5D=180
+
+confirm the same get request is being sent from production site:
+this call fired in prod:
+http://www.queueskipper.com/api/listings?bounds%5Btl_lat%5D=89.63342561818912&bounds%5Btl_long%5D=-180&bounds%5Bbr_lat%5D=180&bounds%5Bbr_long%5D=180
+
+get associated rails queries sent by these api calls:
+A:
+
+  Listing Load (1.0ms)  SELECT "listings".* FROM "listings"  WHERE (        longitude < '180' and
+        longitude > '-180' and
+        latitude > '-180' and
+        latitude < '180'
+) AND "listings"."active" = 't'
+
+B: 
+
+  Listing Load (0.4ms)  SELECT "listings".* FROM "listings"  WHERE (        longitude < '180' and
+        longitude > '-180' and
+        latitude > '180' and
+        latitude < '89.63342561818912'
+) AND "listings"."active" = 't'
+
+this.map.getBounds().toString()
+"((-88.0482528244655, -180), (89.63342561818912, 180))"
+
+this.map.getBounds().toUrlValue()
+"-88.048253,-180,89.633426,180"
+
+top left is center of alaska,
+bottom right just off the coast of argentina:
+this.map.getBounds().toUrlValue().split(",")
+["-44.521041", "-156.410277", "66.830274", "-50.06262"]
+
+middle of alaska lat long is:
+65.761388, -152.675287
+
+argentina south atlantic ocean is:
+-42.627360, -49.667474
+
+so 
+tl_lat = this.map.getBounds().toUrlValue().split(",")[2]
+tl_long = this.map.getBounds().toUrlValue().split(",")[1]
+br_lat = this.map.getBounds().toUrlValue().split(",")[0]
+br_long = this.map.getBounds().toUrlValue().split(",")[3]
