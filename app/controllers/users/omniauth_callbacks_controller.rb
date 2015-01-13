@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # You need to implement the method below in your model (e.g. app/models/user.rb)
     returned_hash = User.from_omniauth(request.env["omniauth.auth"]) 
     @user = returned_hash[:user]
-    display_flash = returned_hash[:display_flash_errors]
+    display_flash = returned_hash[:display_creation_message]
     10.times do 
       puts "=========================" 
     end
