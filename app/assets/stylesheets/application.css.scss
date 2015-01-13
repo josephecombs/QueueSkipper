@@ -7,7 +7,7 @@
 }
 
 #content {
-  padding-top: 50px;
+  padding-top: 0px;
 }
 
 .brand:hover {
@@ -326,3 +326,57 @@ div.loadspinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%);
 	text-align:center;
 	width: 5%;
 }
+
+#devise-alerts {
+	margin-top: 50px;
+	text-weight: bold;
+	padding-top: 1px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: right;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: right;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: right;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: right;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-bottom: 0px;
+ }
+ 
+ ul
+ {
+     list-style-type: none;
+ }

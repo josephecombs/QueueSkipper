@@ -16,6 +16,9 @@ window.QueueSkipper = {
 $(document).ready(function(){
   QueueSkipper.initialize();
   
+  $("a.close").click(function() {
+	  $("div.alert").remove();
+  });
   //from https://github.com/jaredhanson/passport-facebook/issues/12
 	//   (function removeFacebookAppendedHash() {
 	//     if (!window.location.hash || window.location.hash !== '_=_')

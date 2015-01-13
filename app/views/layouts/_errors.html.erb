@@ -1,1 +1,15 @@
-<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+<%#= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+  <div id="devise-alerts">
+<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>">
+      <a data-dismiss="alert" class="close">×</a>
+        <ul>
+          <li>
+            <%= value %>&nbsp&nbsp
+          </li>
+        </ul>
+	</div>
+<% end %>
+  </div>
+
+
