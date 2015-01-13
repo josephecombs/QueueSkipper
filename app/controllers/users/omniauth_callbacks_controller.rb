@@ -1,7 +1,16 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     # You need to implement the method below in your model (e.g. app/models/user.rb)
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    returned_hash = User.from_omniauth(request.env["omniauth.auth"]) 
+    @user = returned_hash[:user]
+    display_flash = returned_hash[:display_flash_errors]
+    10.times do 
+      puts "=========================" 
+    end
+    puts display_flash
+    10.times do 
+      puts "========================="
+    end
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
